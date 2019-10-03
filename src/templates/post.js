@@ -1,62 +1,68 @@
+/**
+ * External dependencies
+ */
 import React, { Fragment } from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
+/**
+ * Internal dependencies
+ */
 import Layout from '../components/Layout';
 import Link from '../components/Link';
 
-const CategoryList = ({ list = [] }) => (
-  <Fragment>
+const CategoryList = ( { list = [] } ) => (
+	<Fragment>
     Categories:
-    <ul>
-      {list.map(category => (
-        <li key={category}>
-          <Link to={`/categories/${category}`}>{category}</Link>
-        </li>
-      ))}
-    </ul>
-  </Fragment>
+		<ul>
+			{ list.map( ( category ) => (
+				<li key={ category }>
+					<Link to={ `/categories/${ category }` }>{ category }</Link>
+				</li>
+			) ) }
+		</ul>
+	</Fragment>
 );
 
-export default function Post({
-  data: { site, mdx },
-  pageContext: { next, prev },
-}) {
-  return (
-    <Layout site={site} frontmatter={mdx.frontmatter}>
-      <h1>{mdx.frontmatter.title}</h1>
-      <h2>{mdx.frontmatter.date}</h2>
+export default function Post( {
+	data: { site, mdx },
+	pageContext: { next, prev },
+} ) {
+	return (
+		<Layout site={ site } frontmatter={ mdx.frontmatter }>
+			<h1>{ mdx.frontmatter.title }</h1>
+			<h2>{ mdx.frontmatter.date }</h2>
 
-      {mdx.frontmatter.banner && (
-        <Img
-          sizes={mdx.frontmatter.banner.childImageSharp.sizes}
-          alt={site.siteMetadata.keywords.join(', ')}
-        />
-      )}
+			{ mdx.frontmatter.banner && (
+				<Img
+					sizes={ mdx.frontmatter.banner.childImageSharp.sizes }
+					alt={ site.siteMetadata.keywords.join( ', ' ) }
+				/>
+			) }
 
-      <MDXRenderer>{mdx.code.body}</MDXRenderer>
+			<MDXRenderer>{ mdx.code.body }</MDXRenderer>
 
-      <div>
-        <CategoryList list={mdx.frontmatter.categories} />
+			<div>
+				<CategoryList list={ mdx.frontmatter.categories } />
 
-        <hr />
+				<hr />
 
-        {prev && (
-          <span>
-            Previous{' '}
-            <Link to={prev.fields.slug}>{prev.fields.title}</Link>
-          </span>
-        )}
-        {next && (
-          <span>
-            Next{' '}
-            <Link to={next.fields.slug}>{next.fields.title}</Link>
-          </span>
-        )}
-      </div>
-    </Layout>
-  );
+				{ prev && (
+					<span>
+            Previous{ ' ' }
+						<Link to={ prev.fields.slug }>{ prev.fields.title }</Link>
+					</span>
+				) }
+				{ next && (
+					<span>
+            Next{ ' ' }
+						<Link to={ next.fields.slug }>{ next.fields.title }</Link>
+					</span>
+				) }
+			</div>
+		</Layout>
+	);
 }
 
 export const pageQuery = graphql`

@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
@@ -6,6 +9,9 @@ import { createGlobalStyle } from 'styled-components';
 
 import 'prismjs/themes/prism-okaidia.css';
 
+/**
+ * Internal dependencies
+ */
 import Link from './Link';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 
@@ -15,9 +21,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  ${() => {
-    /* Override PrismJS Defaults */ return null;
-  }}
+  ${ () => {
+		/* Override PrismJS Defaults */ return null;
+	} }
 
   pre {
     background-color: #2f1e2e !important;
@@ -36,60 +42,60 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const NAVIGATION = [
-  { to: '/', label: 'About' },
-  { to: '/blog', label: 'Blog' },
-  { to: 'https://roadtoreact.com', label: 'Courses' },
+	{ to: '/', label: 'About' },
+	{ to: '/blog', label: 'Blog' },
+	{ to: 'https://roadtoreact.com', label: 'Courses' },
 ];
 
-export default ({ site, frontmatter = {}, children }) => {
-  const {
-    title,
-    description: siteDescription,
-    keywords: siteKeywords,
-  } = site.siteMetadata;
+export default ( { site, frontmatter = {}, children } ) => {
+	const {
+		title,
+		description: siteDescription,
+		keywords: siteKeywords,
+	} = site.siteMetadata;
 
-  const {
-    keywords: frontmatterKeywords,
-    description: frontmatterDescription,
-  } = frontmatter;
+	const {
+		keywords: frontmatterKeywords,
+		description: frontmatterDescription,
+	} = frontmatter;
 
-  const keywords = (frontmatterKeywords || siteKeywords).join(', ');
-  const description = frontmatterDescription || siteDescription;
+	const keywords = ( frontmatterKeywords || siteKeywords ).join( ', ' );
+	const description = frontmatterDescription || siteDescription;
 
-  return (
-    <Fragment>
-      <Helmet
-        title={title}
-        meta={[
-          { name: 'description', content: description },
-          { name: 'keywords', content: keywords },
-        ]}
-      >
-        <html lang="en" />
-      </Helmet>
+	return (
+		<Fragment>
+			<Helmet
+				title={ title }
+				meta={ [
+					{ name: 'description', content: description },
+					{ name: 'keywords', content: keywords },
+				] }
+			>
+				<html lang="en" />
+			</Helmet>
 
-      <GlobalStyle />
+			<GlobalStyle />
 
-      <MDXProvider
-        components={{
-          ...MDXLayoutComponents,
-          ...MDXGlobalComponents,
-        }}
-      >
-        <Fragment>
-          <ul>
-            {NAVIGATION.map(navigation => (
-              <li key={navigation.label}>
-                <Link to={navigation.to}>{navigation.label}</Link>
-              </li>
-            ))}
-          </ul>
+			<MDXProvider
+				components={ {
+					...MDXLayoutComponents,
+					...MDXGlobalComponents,
+				} }
+			>
+				<Fragment>
+					<ul>
+						{ NAVIGATION.map( ( navigation ) => (
+							<li key={ navigation.label }>
+								<Link to={ navigation.to }>{ navigation.label }</Link>
+							</li>
+						) ) }
+					</ul>
 
-          {children}
-        </Fragment>
-      </MDXProvider>
-    </Fragment>
-  );
+					{ children }
+				</Fragment>
+			</MDXProvider>
+		</Fragment>
+	);
 };
 
 export const pageQuery = graphql`

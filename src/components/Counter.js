@@ -1,30 +1,33 @@
+/**
+ * External dependencies
+ */
 import React from 'react';
 
-const Counter = ({ initialCounter }) => {
-  const [counter, setCounter] = React.useState(initialCounter);
+const Counter = ( { initialCounter } ) => {
+	const [ counter, setCounter ] = React.useState( initialCounter );
 
-  const onIncrement = () => {
-    setCounter(c => c + 1);
-  };
+	const onIncrement = () => {
+		setCounter( ( c ) => c + 1 );
+	};
 
-  const onDecrement = () => {
-    setCounter(c => c - 1);
-  };
+	const onDecrement = () => {
+		setCounter( ( c ) => c - 1 );
+	};
 
-  return (
-    <div>
-      {counter}
+	return (
+		<div>
+			{ counter }
 
-      <div>
-        <button onClick={onIncrement} type="button">
+			<div>
+				<button onClick={ onIncrement } type="button">
           Increment
-        </button>
-        <button onClick={onDecrement} type="button">
+				</button>
+				<button onClick={ onDecrement } type="button">
           Decrement
-        </button>
-      </div>
-    </div>
-  );
+				</button>
+			</div>
+		</div>
+	);
 };
 
 export default Counter;

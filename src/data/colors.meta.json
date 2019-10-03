@@ -4,14 +4,14 @@
 			"name": "WordPress Blue",
 			"value": "#0073AA",
 			"_meta": {
-				"special": true
+				"type": "blue"
 			}
 		},
 		{
 			"name": "Medium Blue",
 			"value": "#00A0D2",
 			"_meta": {
-				"special": true
+				"type": "blue"
 			}
 		},
 		{
@@ -19,6 +19,7 @@
 			"value": "#191E23",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 900,
 				"altName": "Ultra Dark Gray"
 			}
@@ -28,6 +29,7 @@
 			"value": "#23282D",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 800
 			}
 		},
@@ -36,6 +38,7 @@
 			"value": "#32373C",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 700,
 				"altName": "Base Gray"
 			}
@@ -45,6 +48,7 @@
 			"value": "#40464D",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 600
 			}
 		},
@@ -53,6 +57,7 @@
 			"value": "#555D66",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 500
 			}
 		},
@@ -61,6 +66,7 @@
 			"value": "#606A73",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 400
 			}
 		},
@@ -69,6 +75,7 @@
 			"value": "#6C7781",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 300
 			}
 		},
@@ -77,6 +84,7 @@
 			"value": "#7E8993",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 200
 			}
 		},
@@ -85,7 +93,465 @@
 			"value": "#8F98A1",
 			"_meta": {
 				"baseName": "Dark Gray",
+				"type": "gray",
 				"index": 100
+			}
+		},
+		{
+			"name": "Light Gray 900",
+			"value": "#a2aab2",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 900
+			}
+		},
+		{
+			"name": "Light Gray 800",
+			"value": "#b5bcc2",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 800
+			}
+		},
+		{
+			"name": "Light Gray 700",
+			"value": "#ccd0d4",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 700
+			}
+		},
+		{
+			"name": "Light Gray 600",
+			"value": "#d7dade",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 600
+			}
+		},
+		{
+			"name": "Light Gray 500",
+			"value": "#e2e4e7",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 500
+			}
+		},
+		{
+			"name": "Light Gray 400",
+			"value": "#e8eaeb",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 400
+			}
+		},
+		{
+			"name": "Light Gray 300",
+			"value": "#edeff0",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 300
+			}
+		},
+		{
+			"name": "Light Gray 200",
+			"value": "#f3f4f5",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 200
+			}
+		},
+		{
+			"name": "Light Gray 100",
+			"value": "#fbfbfc",
+			"_meta": {
+				"baseName": "Light Gray",
+				"type": "gray",
+				"index": 100
+			}
+		},
+		{
+			"name": "Shade 30%",
+			"value": "#9a2323",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Shade 20%",
+			"value": "#b02828",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Shade 10%",
+			"value": "#c62d2d",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Accent Red",
+			"value": "#dc3232",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#e35b5b",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#ea8484",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 80%",
+			"value": "#f1adad",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#fcebeb",
+			"_meta": {
+				"baseName": "Accent Red",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "(Fire) Shade 10%",
+			"value": "#c0461e",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "(Fire) Shade 5%",
+			"value": "#ca4a1f",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Fire Orange",
+			"value": "#d54e21",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#f78b53",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#f9a87e",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 60%",
+			"value": "#fbc5a9",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#fef1ea",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (Fire 40%)",
+			"value": "#ee8e0d",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (Fire 20%)",
+			"value": "#f7a407",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Accent Yellow",
+			"value": "#ffb900",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#ffc733",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#ffd566",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 60%",
+			"value": "#ffe399",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#fff8e6",
+			"_meta": {
+				"baseName": "Accent Yellow",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (WP Blue) 5% / Shade 25%",
+			"value": "#328540",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (WP Blue) 5% / Shade 15%",
+			"value": "#399648",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Accent Green",
+			"value": "#46B450",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#6bc373",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#90d296",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 60%",
+			"value": "#b5e1b9",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 70%",
+			"value": "#c8e9cb",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#edf8ee",
+			"_meta": {
+				"baseName": "Accent Green",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Shade (WP Blue) 10%",
+			"value": "#006899",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (80% WordPress Blue)",
+			"value": "#007cb2",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (60% WordPress Blue)",
+			"value": "#0085ba",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tone (40% WordPress Blue)",
+			"value": "#008ec2",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Medium Blue",
+			"value": "#00a0d2",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#33b3db",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#66c6e4",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 60%",
+			"value": "#99d9ed",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 75%",
+			"value": "#bfe7f4",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#e6f6fb",
+			"_meta": {
+				"baseName": "Medium Blue",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Shade 40%",
+			"value": "#4e426c",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Shade 20%",
+			"value": "#685890",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Accent Purple",
+			"value": "#826EB4",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 20%",
+			"value": "#9b8bc3",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 40%",
+			"value": "#b4a8d2",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 60%",
+			"value": "#cdc5e1",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
+			}
+		},
+		{
+			"name": "Tint 90%",
+			"value": "#f3f1f8",
+			"_meta": {
+				"baseName": "Accent Purple",
+				"type": "accent"
 			}
 		}
 	]

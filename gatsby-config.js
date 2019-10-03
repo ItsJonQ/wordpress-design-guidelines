@@ -3,13 +3,16 @@ module.exports = {
 	siteMetadata: {
 		siteUrl: 'https://www.robinwieruch.de/',
 		author: 'Robin Wieruch',
-		title: 'Gatsby MDX Starter Project',
-		description: 'My Gatsby MDX Starter Project',
+		title: 'WordPress Design Guidelines',
+		description:
+			'A collection of guidelines, resources, and tools for designing WordPress.',
 		keywords: [
-			'Software Engineer',
-			'Web Developer',
-			'Consultant',
-			'Freelancer',
+			'WordPress',
+			'design',
+			'guidelines',
+			'system',
+			'color',
+			'typography',
 		],
 	},
 	plugins: [

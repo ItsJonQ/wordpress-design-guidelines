@@ -4,6 +4,7 @@
 			"name": "WordPress Blue",
 			"value": "#0073AA",
 			"_meta": {
+				"baseName": "WordPress Blue",
 				"type": "blue"
 			}
 		},
@@ -11,6 +12,7 @@
 			"name": "Medium Blue",
 			"value": "#00A0D2",
 			"_meta": {
+				"baseName": "Medium Blue",
 				"type": "blue"
 			}
 		},

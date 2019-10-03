@@ -9,7 +9,7 @@ import { MDXProvider } from '@mdx-js/react';
 /**
  * Internal dependencies
  */
-import Link from './Link';
+import { Link } from './index';
 import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
 
 const NAVIGATION = [

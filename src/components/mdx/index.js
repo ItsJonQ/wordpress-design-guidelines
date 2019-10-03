@@ -11,7 +11,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Paragraph from './Paragraph';
 
-import Link from '../Link';
+import { Link } from '../index';
 
 export const MDXLayoutComponents = {
 	h1: ( props ) => <Title { ...props } />,

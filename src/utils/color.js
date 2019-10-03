@@ -5,7 +5,7 @@
  * Internal dependencies
  */
 import colorMetaData from '../data/colors.meta.json';
-// import colorUtil from 'color';
+import colorUtil from 'color';
 import { get, kebabCase } from 'lodash';
 
 const COLORS_DATA = colorMetaData.colors;
@@ -21,9 +21,15 @@ const ACCENT_COLOR_TYPE = 'accent';
 export function getInitialColors() {
 	return COLORS_DATA.map( ( color, index ) => {
 		const id = `${ getColorId( color ) }-${ index }`;
+		const model = colorUtil( color.value );
+
 		return {
 			...color,
 			id,
+			model,
+			rgb: model.object(),
+			hex: model.hex(),
+			luminosity: model.luminosity(),
 		};
 	} );
 }
@@ -140,4 +146,13 @@ export function getColorCollections() {
 	};
 
 	return { blue, gray, accent };
+}
+
+/**
+ * Determines if the text used with this color should be light.
+ * @param {string} color The color.
+ * @return {boolean} Result if should use light text.
+ */
+export function shouldUseLightText( color ) {
+	return colorUtil( color ).luminosity() * 100 < 30;
 }

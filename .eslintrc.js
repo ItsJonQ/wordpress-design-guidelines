@@ -3,6 +3,7 @@ module.exports = {
 	extends: [ 'plugin:@wordpress/eslint-plugin/recommended' ],
 	rules: {
 		'@wordpress/react-no-unsafe-timeout': 'error',
+		'no-console': 'off',
 		'no-restricted-syntax': [
 			'error',
 			// NOTE: We can't include the forward slash in our regex or

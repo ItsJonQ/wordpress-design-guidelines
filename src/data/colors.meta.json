@@ -2,7 +2,7 @@
 	"colors": [
 		{
 			"name": "WordPress Blue",
-			"value": "#0073AA",
+			"value": "#000000",
 			"_meta": {
 				"baseName": "Blue",
 				"type": "blue"

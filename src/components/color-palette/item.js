@@ -80,6 +80,7 @@ ColorPaletteItem.defaultProps = {
 const StyledItem = styled.button`
 	appearance: none;
 	border: none;
+	border-radius: 4px;
 	box-sizing: border-box;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
 	font: inherit;

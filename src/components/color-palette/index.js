@@ -41,9 +41,5 @@ const StyledPalette = styled.div`
 		@media (min-width: 768px) {
 			max-width: calc(50% - 20px);
 		}
-
-		@media (min-width: 960px) {
-			max-width: calc(33.33334% - 20px);
-		}
 	}
 `;

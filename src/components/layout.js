@@ -4,19 +4,13 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
 
 /**
  * Internal dependencies
  */
-import { Link } from './index';
-import { MDXLayoutComponents, MDXGlobalComponents } from './mdx';
+import { Link, MDXProvider } from './index';
 
-const NAVIGATION = [
-	{ to: '/', label: 'About' },
-	{ to: '/blog', label: 'Blog' },
-	{ to: 'https://roadtoreact.com', label: 'Courses' },
-];
+const NAVIGATION = [ { to: '/', label: 'Home' } ];
 
 export default ( { site, frontmatter = {}, children } ) => {
 	const {
@@ -45,12 +39,7 @@ export default ( { site, frontmatter = {}, children } ) => {
 				<html lang="en" />
 			</Helmet>
 
-			<MDXProvider
-				components={ {
-					...MDXLayoutComponents,
-					...MDXGlobalComponents,
-				} }
-			>
+			<MDXProvider>
 				<Fragment>
 					<ul>
 						{ NAVIGATION.map( ( navigation ) => (

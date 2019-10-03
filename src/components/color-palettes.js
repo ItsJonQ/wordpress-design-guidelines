@@ -8,7 +8,7 @@ import React from 'react';
 import { ColorSet } from './index';
 import { getColorCollections } from '../utils';
 
-export default function Testing() {
+export default function ColorPalettes() {
 	const colorCollections = getColorCollections();
 	const { blue, gray, accent } = colorCollections;
 

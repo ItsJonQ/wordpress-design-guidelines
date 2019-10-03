@@ -7,10 +7,14 @@ import { graphql } from 'gatsby';
 /**
  * Internal dependencies
  */
-import Layout from '../components/layout';
+import { Link, Layout } from '../components';
 
 export default function Index( { data: { site } } ) {
-	return <Layout site={ site }>Landing Page</Layout>;
+	return (
+		<Layout site={ site }>
+			<Link to="/colors">Colors</Link>
+		</Layout>
+	);
 }
 
 export const pageQuery = graphql`

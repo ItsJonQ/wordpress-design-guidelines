@@ -21,10 +21,12 @@ const ACCENT_COLOR_TYPE = 'accent';
 export function getInitialColors() {
 	return COLORS_DATA.map( ( color, index ) => {
 		const id = `${ getColorId( color ) }-${ index }`;
-		const model = colorUtil( color.value );
+		const value = color.value.toLowerCase();
+		const model = colorUtil( value );
 
 		return {
 			...color,
+			value,
 			id,
 			model,
 			rgb: model.object(),

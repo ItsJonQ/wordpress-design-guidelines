@@ -1,0 +1,4 @@
+.cache
+node_modules
+src/**/*.css.js
+!.eslintrc.js

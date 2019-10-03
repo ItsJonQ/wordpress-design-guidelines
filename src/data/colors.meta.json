@@ -1,0 +1,92 @@
+{
+	"colors": [
+		{
+			"name": "WordPress Blue",
+			"value": "#0073AA",
+			"_meta": {
+				"special": true
+			}
+		},
+		{
+			"name": "Medium Blue",
+			"value": "#00A0D2",
+			"_meta": {
+				"special": true
+			}
+		},
+		{
+			"name": "Dark Gray 900",
+			"value": "#191E23",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 900,
+				"altName": "Ultra Dark Gray"
+			}
+		},
+		{
+			"name": "Dark Gray 800",
+			"value": "#23282D",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 800
+			}
+		},
+		{
+			"name": "Dark Gray 700",
+			"value": "#32373C",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 700,
+				"altName": "Base Gray"
+			}
+		},
+		{
+			"name": "Dark Gray 600",
+			"value": "#40464D",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 600
+			}
+		},
+		{
+			"name": "Dark Gray 500",
+			"value": "#555D66",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 500
+			}
+		},
+		{
+			"name": "Dark Gray 400",
+			"value": "#606A73",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 400
+			}
+		},
+		{
+			"name": "Dark Gray 300",
+			"value": "#6C7781",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 300
+			}
+		},
+		{
+			"name": "Dark Gray 200",
+			"value": "#7E8993",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 200
+			}
+		},
+		{
+			"name": "Dark Gray 100",
+			"value": "#8F98A1",
+			"_meta": {
+				"baseName": "Dark Gray",
+				"index": 100
+			}
+		}
+	]
+}

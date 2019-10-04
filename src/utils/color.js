@@ -156,7 +156,7 @@ export function getColorCollections() {
  * @return {boolean} Result if should use light text.
  */
 export function shouldUseLightText( color ) {
-	return colorUtil( color ).luminosity() * 100 < 30;
+	return colorUtil( color ).luminosity() * 100 < 35;
 }
 
 /**

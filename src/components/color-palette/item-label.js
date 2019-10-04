@@ -32,6 +32,6 @@ const LabelUI = styled.div`
 	}
 
 	&.is-shadeTint {
-		opacity: 0.6;
+		opacity: 0.75;
 	}
 `;

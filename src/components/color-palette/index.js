@@ -10,10 +10,12 @@ import styled from 'styled-components';
 // import Header from './header';
 import Item from './item';
 import { ColorPaletteProvider } from './context';
+import { useClassNames } from '../../utils';
 
 export default function ColorPalette( props ) {
+	const [ classnames ] = useClassNames( props, 'ColorPalette' );
 	const { isGrid, colors, ...restProps } = props;
-	const className = isGrid ? 'is-grid' : '';
+	const className = classnames( isGrid && 'is-grid' );
 
 	return (
 		<ColorPaletteProvider { ...restProps }>

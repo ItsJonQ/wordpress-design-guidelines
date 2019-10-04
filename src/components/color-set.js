@@ -8,13 +8,15 @@ import styled from 'styled-components';
  * Internal dependencies
  */
 import { ColorPalette } from './index';
+import { useClassNames } from '../utils';
 
 export default function ColorSet( props ) {
+	const [ classnames ] = useClassNames( props, 'ColorSet' );
 	const { set } = props;
 	const { colors } = set;
 
 	return (
-		<StyledGrid>
+		<StyledGrid className={ classnames() }>
 			{ colors.map( ( collection ) => (
 				<ColorPalette
 					isGrid

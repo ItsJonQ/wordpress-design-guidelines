@@ -1,7 +1,21 @@
 /**
  * External dependencies
  */
+import React from 'react';
 import styled from 'styled-components';
+
+/**
+ * Internal dependencies
+ */
+import Block from './block';
+import Item from './item';
+import { useClassNames } from '../../utils';
+
+export default function Flexy( props ) {
+	const [ classnames ] = useClassNames( props, 'Flexy' );
+
+	return <StyledFlexy { ...props } className={ classnames() } />;
+}
 
 const alignProps = {
 	top: 'flex-start',
@@ -10,7 +24,7 @@ const alignProps = {
 	bottom: 'flex-end',
 };
 
-const Flexy = styled.div`
+const StyledFlexy = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
@@ -32,18 +46,5 @@ Flexy.defaultProps = {
 	align: 'center',
 };
 
-const Item = styled.div`
-	min-width: 0;
-	min-height: 0;
-`;
-
-const Block = styled.div`
-	min-width: 0;
-	min-height: 0;
-	flex: 1;
-`;
-
 Flexy.Item = Item;
 Flexy.Block = Block;
-
-export default Flexy;

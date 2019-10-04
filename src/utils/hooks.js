@@ -3,6 +3,17 @@
  */
 import { useEffect } from 'react';
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed';
+import classnamesUtil from 'classnames';
+
+export function useClassNames( props, initialClassName = '' ) {
+	const { className: classNameProp } = props;
+	const baseClassNames = classnamesUtil( classNameProp, initialClassName );
+	const classnames = ( ...args ) => {
+		return classnamesUtil( baseClassNames, classnamesUtil( ...args ) );
+	};
+
+	return [ classnames ];
+}
 
 export function useClearSelection() {
 	useEffect( () => {

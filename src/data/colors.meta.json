@@ -269,6 +269,14 @@
 			}
 		},
 		{
+			"name": "Accent Orange",
+			"value": "#F56E28",
+			"_meta": {
+				"baseName": "Accent Orange",
+				"type": "accent"
+			}
+		},
+		{
 			"name": "Tint 20%",
 			"value": "#f78b53",
 			"_meta": {

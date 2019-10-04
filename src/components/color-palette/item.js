@@ -9,48 +9,42 @@ import copyToClipboard from 'copy-to-clipboard';
  * Internal dependencies
  */
 import Flexy from '../flexy';
-// import { useColorPaletteContext } from './context';
-import { shouldUseLightText } from '../../utils';
-import { useClearTimeout } from '../../utils/hooks';
+import ItemLabel from './item-label';
+import {
+	shouldUseLightText,
+	useClassNames,
+	useClearTimeout,
+} from '../../utils';
 
 export default function ColorPaletteItem( props ) {
-	// const {
-	// 	getIsCurrentColor,
-	// 	setCurrentColor,
-	// 	_meta: { baseName },
-	// } = useColorPaletteContext();
-
+	const [ classnames ] = useClassNames( props, 'ColorPaletteItem' );
 	const { isHeader, name, value, id } = props;
 
 	const [ isCopied, setCopied ] = useState( false );
 	const ref = useRef( null );
 	const isLightText = shouldUseLightText( value );
-	// const isCurrent = getIsCurrentColor( { value } );
+	const isShadeTint = getIsShadeTint( props );
+	const isMainAccent = getIsMainAccent( props );
 
 	let copiedTimeout;
 	useClearTimeout( copiedTimeout );
-
-	// useFocusRef( ref, isCurrent );
-	// useScrollRefIntoView( ref, isCurrent );
 
 	const handleOnClick = ( event ) => {
 		event.preventDefault();
 		copyToClipboard( value );
 		setCopied( true );
 
-		// setCurrentColor( props );
-
 		copiedTimeout = setTimeout( () => {
 			setCopied( false );
 		}, 1000 );
 	};
 
-	const className = isHeader ? 'is-header' : '';
-	// const itemName = baseName ? name.replace( baseName, '' ) : name;
-	// const baseId = getColorId( { name } );
+	const className = classnames(
+		isLightText && 'is-lightText',
+		isHeader && 'is-header',
+		isMainAccent && 'is-mainAccent',
+	);
 
-	// const id = isHeader ? `main-${ baseId }` : baseId;
-	// const label = isHeader ? baseName : itemName;
 	const label = name;
 
 	return (
@@ -61,12 +55,18 @@ export default function ColorPaletteItem( props ) {
 			ref={ ref }
 			style={ {
 				background: value,
-				color: isLightText ? 'white' : 'black',
 			} }
 			onClick={ handleOnClick }
 		>
 			<Flexy>
-				<Flexy.Item>{ isCopied ? 'Copied!' : label }</Flexy.Item>
+				<Flexy.Item>
+					<ItemLabel
+						isShadeTint={ isShadeTint }
+						isMainAccent={ isMainAccent }
+					>
+						{ isCopied ? 'Copied!' : label }
+					</ItemLabel>
+				</Flexy.Item>
 				<Flexy.Item>{ value }</Flexy.Item>
 			</Flexy>
 		</StyledItem>
@@ -77,14 +77,40 @@ ColorPaletteItem.defaultProps = {
 	setCurrentColor: () => undefined,
 };
 
+function getIsShadeTint( props ) {
+	const {
+		name: nameProp,
+		_meta: { type },
+	} = props;
+	const name = nameProp.toLowerCase();
+
+	return (
+		type === 'accent' &&
+		( name.includes( 'shade' ) ||
+			name.includes( 'tint' ) ||
+			name.includes( 'tone' ) )
+	);
+}
+
+function getIsMainAccent( props ) {
+	const {
+		name,
+		_meta: { baseName },
+	} = props;
+
+	return name === baseName;
+}
+
 const StyledItem = styled.button`
 	appearance: none;
 	border: none;
 	border-radius: 4px;
 	box-sizing: border-box;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
-	font: inherit;
 	cursor: pointer;
+	color: rgba(0, 0, 0, 0.75);
+	font: inherit;
+	font-size: 14px;
 	display: block;
 	padding: 12px 10px;
 	position: relative;
@@ -106,8 +132,12 @@ const StyledItem = styled.button`
 		transform: scale(1.02);
 	}
 
+	&.is-lightText {
+		color: white;
+	}
+
 	&.is-header {
-		padding: 30px 10px;
+		padding: 40px 10px;
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
 
@@ -115,5 +145,9 @@ const StyledItem = styled.button`
 		&:focus {
 			border-radius: 4px;
 		}
+	}
+
+	&.is-mainAccent {
+		padding: 30px 10px;
 	}
 `;

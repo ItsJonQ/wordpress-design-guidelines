@@ -1,6 +1,6 @@
 const path = require( 'path' );
 
-exports.onCreateWebpackConfig = ( { actions } ) => {
+exports.onCreateWebpackConfig = ( { getConfig, actions, stage } ) => {
 	actions.setWebpackConfig( {
 		resolve: {
 			modules: [ path.resolve( __dirname, 'src' ), 'node_modules' ],
@@ -9,6 +9,16 @@ exports.onCreateWebpackConfig = ( { actions } ) => {
 			},
 		},
 	} );
+
+	// react-🔥-dom fix
+	// https://github.com/gatsbyjs/gatsby/issues/11934#issuecomment-469046186
+	const config = getConfig();
+	if ( stage.startsWith( 'develop' ) && config.resolve ) {
+		config.resolve.alias = {
+			...config.resolve.alias,
+			'react-dom': '@hot-loader/react-dom',
+		};
+	}
 };
 
 exports.onCreateNode = ( { node, actions } ) => {

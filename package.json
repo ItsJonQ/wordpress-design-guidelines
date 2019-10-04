@@ -8,7 +8,7 @@
 		"prestart": "yarn",
 		"start": "npm run develop",
 		"build": "gatsby build",
-		"develop": "gatsby develop --open",
+		"develop": "gatsby develop --open --port 5800",
 		"deploy:prod": "npm run deploy:production",
 		"deploy:production": "npm run build && netlify deploy --prod",
 		"deploy:staging": "npm run build && netlify deploy",
@@ -17,6 +17,7 @@
 		"format:js": "npm run lint -- --fix"
 	},
 	"dependencies": {
+		"@hot-loader/react-dom": "16.9.0",
 		"@mdx-js/mdx": "^1.0.21",
 		"@mdx-js/react": "^1.0.21",
 		"@wordpress/eslint-plugin": "2.4.0",

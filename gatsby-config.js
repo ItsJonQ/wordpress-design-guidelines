@@ -1,8 +1,8 @@
 module.exports = {
 	pathPrefix: '/',
 	siteMetadata: {
-		siteUrl: 'https://www.robinwieruch.de/',
-		author: 'Robin Wieruch',
+		siteUrl: 'https://wp-design-guidelines.netlify.com/',
+		author: 'Jon Quach',
 		title: 'WordPress Design Guidelines',
 		description:
 			'A collection of guidelines, resources, and tools for designing WordPress.',

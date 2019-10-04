@@ -7,17 +7,17 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { GlobalStyles, PageLayout, SEO } from '../components';
+import { GlobalStyles, SiteLayout, SEO } from '../components';
 
-export default function Layout( props ) {
+export default function Template( props ) {
 	const { children } = props;
 
 	return (
-		<PageLayout>
+		<SiteLayout>
 			<GlobalStyles />
 			<SEO { ...props } />
 			<PageUI>{ children }</PageUI>
-		</PageLayout>
+		</SiteLayout>
 	);
 }
 

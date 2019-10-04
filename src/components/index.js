@@ -11,6 +11,6 @@ export { default as GlobalStyles } from './global-styles';
 export { default as Layout } from './layout';
 export { default as Link } from './link';
 export { default as MDXProvider } from './mdx-provider';
-export { default as PageLayout } from './page-layout';
 export { default as SEO } from './seo';
 export { default as SiteHeader } from './site-header';
+export { default as SiteLayout } from './site-layout';

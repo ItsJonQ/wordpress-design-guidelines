@@ -10,21 +10,21 @@ import styled from 'styled-components';
 import { GlobalStyles, MDXProvider, SiteHeader } from './index';
 import { useClassNames } from '../utils';
 
-export default function PageLayout( props ) {
+export default function SiteLayout( props ) {
 	const { children } = props;
-	const [ classnames ] = useClassNames( props, 'PageLayout' );
+	const [ classnames ] = useClassNames( props, 'SiteLayout' );
 
 	return (
 		<>
 			<GlobalStyles />
 			<SiteHeader />
-			<PageWrapperUI className="PageLayoutWrapper">
+			<PageWrapperUI className="SiteLayoutWrapper">
 				<PageUI className={ classnames() }>
-					<SidebarUI className="PageLayoutSidebar">
+					<SidebarUI className="SiteLayoutSidebar">
 						<SidebarContentUI></SidebarContentUI>
 					</SidebarUI>
-					<BodyUI className="PageLayoutBody">
-						<ContentUI className="PageLayoutContent">
+					<BodyUI className="SiteLayoutBody">
+						<ContentUI className="SiteLayoutContent">
 							<MDXProvider>{ children }</MDXProvider>
 						</ContentUI>
 					</BodyUI>

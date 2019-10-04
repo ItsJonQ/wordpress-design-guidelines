@@ -7,7 +7,7 @@ import { graphql } from 'gatsby';
 /**
  * Internal dependencies
  */
-import { PageLayout, SEO } from './index';
+import { SiteLayout, SEO } from './index';
 
 export default ( { site, frontmatter = {}, children } ) => {
 	const { description: siteDescription } = site.siteMetadata;
@@ -17,10 +17,10 @@ export default ( { site, frontmatter = {}, children } ) => {
 	const description = frontmatterDescription || siteDescription;
 
 	return (
-		<PageLayout>
+		<SiteLayout>
 			<SEO { ...site.siteMetadata } description={ description } />
 			{ children }
-		</PageLayout>
+		</SiteLayout>
 	);
 };
 

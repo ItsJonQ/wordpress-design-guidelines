@@ -7,13 +7,14 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { SEO } from '../components';
+import { GlobalStyles, SEO } from '../components';
 
 export default function PageLayout( props ) {
 	const { children } = props;
 
 	return (
 		<>
+			<GlobalStyles />
 			<SEO { ...props } />
 			<StyledPage>{ children }</StyledPage>
 		</>

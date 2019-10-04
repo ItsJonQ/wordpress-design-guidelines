@@ -6,7 +6,7 @@
  */
 import colorMetaData from '../data/colors.meta.json';
 import colorUtil from 'color';
-import { get, kebabCase } from 'lodash';
+import { get, camelCase, kebabCase } from 'lodash';
 
 const COLORS_DATA = colorMetaData.colors;
 const COLORS = getInitialColors( COLORS_DATA );
@@ -157,4 +157,61 @@ export function getColorCollections() {
  */
 export function shouldUseLightText( color ) {
 	return colorUtil( color ).luminosity() * 100 < 30;
+}
+
+/**
+ * Generates CSS color variables from a color set.
+ * @param {Object} colorSet Data containing a collection of colors.
+ * @return {string} Generated CSS color variables.
+ */
+export function generateCSSColorVariablesFromSet( colorSet ) {
+	const { colors } = colorSet;
+
+	const cssVariableCollection = colors
+		.reduce( ( collection, color ) => {
+			const { name: nameProp, value } = color;
+			const name = `color-${ nameProp }`;
+			const cssVariable = `--${ camelCase( name ) }: ${ value };`;
+
+			return [ ...collection, cssVariable ];
+		}, [] )
+		.join( '\n' );
+
+	return cssVariableCollection;
+}
+
+/**
+ * Generates CSS color variables from a color collection.
+ * @param {Object} colorCollection Data containing a collection of colors.
+ * @return {string} Generated CSS color variables.
+ */
+export function generateCSSColorVariableString( colorCollection ) {
+	const { colors } = colorCollection;
+	if ( ! colors ) {
+		return '';
+	}
+
+	const cssVariablesString = colors
+		.reduce( ( collection, colorSet ) => {
+			const cssVariables = generateCSSColorVariablesFromSet( colorSet );
+			return [ ...collection, cssVariables ];
+		}, [] )
+		.join( '\n' );
+
+	return cssVariablesString;
+}
+
+/**
+ * Generates CSS color variables from the initial color data set.
+ * @return {string} Generated CSS color variables
+ */
+export function generateCSSColorVariables() {
+	const { blue, gray } = getColorCollections();
+
+	const cssColorVariables = [
+		generateCSSColorVariableString( blue ),
+		generateCSSColorVariableString( gray ),
+	].join( '\n' );
+
+	return cssColorVariables;
 }

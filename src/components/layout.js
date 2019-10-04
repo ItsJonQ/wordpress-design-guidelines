@@ -7,7 +7,7 @@ import { graphql } from 'gatsby';
 /**
  * Internal dependencies
  */
-import { Link, MDXProvider, SEO } from './index';
+import { GlobalStyles, Link, MDXProvider, SEO } from './index';
 
 const NAVIGATION = [ { to: '/', label: 'Home' } ];
 
@@ -20,6 +20,7 @@ export default ( { site, frontmatter = {}, children } ) => {
 
 	return (
 		<>
+			<GlobalStyles />
 			<SEO { ...site.siteMetadata } description={ description } />
 			<MDXProvider>
 				<>

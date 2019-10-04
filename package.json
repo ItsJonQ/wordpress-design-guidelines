@@ -9,6 +9,10 @@
 		"start": "npm run develop",
 		"build": "gatsby build",
 		"develop": "gatsby develop --open",
+		"deploy:prod": "npm run deploy:production",
+		"deploy:production": "npm run build && netlify deploy --prod",
+		"deploy:staging": "npm run build && netlify deploy",
+		"deploy": "npm run deploy:staging",
 		"lint": "eslint src/**/*.js",
 		"format:js": "npm run lint -- --fix"
 	},
@@ -40,6 +44,7 @@
 		"gatsby-transformer-remark": "^2.5.0",
 		"gatsby-transformer-sharp": "^2.2.0",
 		"lodash": "4.17.15",
+		"netlify-cli": "2.15.0",
 		"prismjs": "^1.16.0",
 		"react": "^16.10.1",
 		"react-dom": "^16.10.1",

@@ -19,11 +19,15 @@ function getTitleFromProps( props ) {
 	return title || get( props, 'pageContext.frontmatter.title' );
 }
 
-export default function SEO( props ) {
+function getDescriptionFromProps( props ) {
 	const { description } = props;
+	return description || get( props, 'pageContext.frontmatter.description' );
+}
 
+export default function SEO( props ) {
 	const title = getTitleFromProps( props );
 	const pageTitle = getPageTitle( title );
+	const description = getDescriptionFromProps( props );
 
 	return (
 		<Helmet>

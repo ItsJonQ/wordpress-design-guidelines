@@ -7,21 +7,21 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { GlobalStyles, SEO } from '../components';
+import { GlobalStyles, PageLayout, SEO } from '../components';
 
-export default function PageLayout( props ) {
+export default function Layout( props ) {
 	const { children } = props;
 
 	return (
-		<>
+		<PageLayout>
 			<GlobalStyles />
 			<SEO { ...props } />
-			<StyledPage>{ children }</StyledPage>
-		</>
+			<PageUI>{ children }</PageUI>
+		</PageLayout>
 	);
 }
 
-const StyledPage = styled.div`
+const PageUI = styled.div`
 	max-width: 800px;
 	margin: auto;
 `;

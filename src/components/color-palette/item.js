@@ -48,7 +48,7 @@ export default function ColorPaletteItem( props ) {
 	const label = name;
 
 	return (
-		<StyledItem
+		<ItemUI
 			aria-label={ name }
 			className={ className }
 			data-color-id={ id }
@@ -69,7 +69,7 @@ export default function ColorPaletteItem( props ) {
 				</Flexy.Item>
 				<Flexy.Item>{ value }</Flexy.Item>
 			</Flexy>
-		</StyledItem>
+		</ItemUI>
 	);
 }
 
@@ -101,7 +101,7 @@ function getIsMainAccent( props ) {
 	return name === baseName;
 }
 
-const StyledItem = styled.button`
+const ItemUI = styled.button`
 	appearance: none;
 	border: none;
 	border-radius: 4px;

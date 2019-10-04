@@ -7,9 +7,7 @@ import { graphql } from 'gatsby';
 /**
  * Internal dependencies
  */
-import { GlobalStyles, Link, MDXProvider, SEO } from './index';
-
-const NAVIGATION = [ { to: '/', label: 'Home' } ];
+import { PageLayout, SEO } from './index';
 
 export default ( { site, frontmatter = {}, children } ) => {
 	const { description: siteDescription } = site.siteMetadata;
@@ -19,25 +17,10 @@ export default ( { site, frontmatter = {}, children } ) => {
 	const description = frontmatterDescription || siteDescription;
 
 	return (
-		<>
-			<GlobalStyles />
+		<PageLayout>
 			<SEO { ...site.siteMetadata } description={ description } />
-			<MDXProvider>
-				<>
-					<ul>
-						{ NAVIGATION.map( ( navigation ) => (
-							<li key={ navigation.label }>
-								<Link to={ navigation.to }>
-									{ navigation.label }
-								</Link>
-							</li>
-						) ) }
-					</ul>
-
-					{ children }
-				</>
-			</MDXProvider>
-		</>
+			{ children }
+		</PageLayout>
 	);
 };
 

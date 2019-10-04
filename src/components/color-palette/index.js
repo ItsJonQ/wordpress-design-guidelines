@@ -19,11 +19,11 @@ export default function ColorPalette( props ) {
 
 	return (
 		<ColorPaletteProvider { ...restProps }>
-			<StyledPalette className={ className }>
+			<PaletteUI className={ className }>
 				{ colors.map( ( item ) => {
 					return <Item { ...item } key={ item.id } />;
 				} ) }
-			</StyledPalette>
+			</PaletteUI>
 		</ColorPaletteProvider>
 	);
 }
@@ -33,7 +33,7 @@ ColorPalette.defaultProps = {
 	setCurrentColor: () => undefined,
 };
 
-const StyledPalette = styled.div`
+const PaletteUI = styled.div`
 	width: 100%;
 
 	&.is-grid {

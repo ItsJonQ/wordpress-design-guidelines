@@ -18,10 +18,10 @@ export default function ColorPaletteItemLabel( props ) {
 		isShadeTint && 'is-shadeTint',
 	);
 
-	return <StyledLabel className={ className }>{ children }</StyledLabel>;
+	return <LabelUI className={ className }>{ children }</LabelUI>;
 }
 
-const StyledLabel = styled.div`
+const LabelUI = styled.div`
 	font-size: 11px;
 	font-weight: bold;
 	line-height: 1;

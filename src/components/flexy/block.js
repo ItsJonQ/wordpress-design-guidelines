@@ -12,10 +12,10 @@ import { useClassNames } from '../../utils';
 export default function FlexyBlock( props ) {
 	const [ classnames ] = useClassNames( props, 'FlexyBlock' );
 
-	return <StyledBlock { ...props } className={ classnames() } />;
+	return <BlockUI { ...props } className={ classnames() } />;
 }
 
-const StyledBlock = styled.div`
+const BlockUI = styled.div`
 	min-width: 0;
 	min-height: 0;
 `;

@@ -16,7 +16,7 @@ export default function ColorSet( props ) {
 	const { colors } = set;
 
 	return (
-		<StyledGrid className={ classnames() }>
+		<GridUI className={ classnames() }>
 			{ colors.map( ( collection ) => (
 				<ColorPalette
 					isGrid
@@ -24,11 +24,11 @@ export default function ColorSet( props ) {
 					key={ collection.id }
 				/>
 			) ) }
-		</StyledGrid>
+		</GridUI>
 	);
 }
 
-const StyledGrid = styled.div`
+const GridUI = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -10px;

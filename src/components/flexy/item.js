@@ -12,10 +12,10 @@ import { useClassNames } from '../../utils';
 export default function FlexyItem( props ) {
 	const [ classnames ] = useClassNames( props, 'FlexyItem' );
 
-	return <StyledItem { ...props } className={ classnames() } />;
+	return <ItemUI { ...props } className={ classnames() } />;
 }
 
-const StyledItem = styled.div`
+const ItemUI = styled.div`
 	min-width: 0;
 	min-height: 0;
 `;

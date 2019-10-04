@@ -14,7 +14,7 @@ import { useClassNames } from '../../utils';
 export default function Flexy( props ) {
 	const [ classnames ] = useClassNames( props, 'Flexy' );
 
-	return <StyledFlexy { ...props } className={ classnames() } />;
+	return <FlexyUI { ...props } className={ classnames() } />;
 }
 
 const alignProps = {
@@ -24,7 +24,7 @@ const alignProps = {
 	bottom: 'flex-end',
 };
 
-const StyledFlexy = styled.div`
+const FlexyUI = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100%;

@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 export { default as Break } from './break';
+export { default as Box } from './box';
 export { default as Card } from './card';
 export { default as CalloutCard } from './callout-card';
 export { default as ColorPalette } from './color-palette';

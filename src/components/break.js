@@ -15,6 +15,7 @@ export default function Break( props ) {
 }
 
 const BreakUI = styled.div`
-	padding: 10px 0;
 	height: 0;
+	margin: 20px 0;
+	overflow: hidden;
 `;

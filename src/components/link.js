@@ -5,7 +5,7 @@ import React from 'react';
 import GatsbyLink from 'gatsby-link';
 
 export default function Link( props ) {
-	const { children, to, ...restProps } = props;
+	const { children, rel: relProp, target, to, ...restProps } = props;
 	const internal = /^\/(?!\/)/.test( to );
 
 	if ( internal ) {
@@ -16,8 +16,16 @@ export default function Link( props ) {
 		);
 	}
 
+	const isOpenInNewTab = target === '_blank';
+	const safeRel = isOpenInNewTab ? 'noreferrer noopener' : '';
+
+	const linkProps = {
+		...restProps,
+		rel: relProp || safeRel,
+	};
+
 	return (
-		<a href={ to } { ...restProps }>
+		<a href={ to } { ...linkProps }>
 			{ children }
 		</a>
 	);

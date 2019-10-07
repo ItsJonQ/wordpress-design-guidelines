@@ -38,8 +38,7 @@ const PageWrapperUI = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-	min-height: calc(100vh);
-	padding-top: 50px;
+	min-height: calc(100vh - 50px);
 	width: 100%;
 `;
 

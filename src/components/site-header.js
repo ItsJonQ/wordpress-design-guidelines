@@ -29,7 +29,6 @@ const SiteHeaderUI = styled.div`
 	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 	height: 50px;
 	left: 0;
-	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 100;

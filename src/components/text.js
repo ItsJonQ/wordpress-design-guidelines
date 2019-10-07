@@ -3,10 +3,7 @@
  */
 import styled from 'styled-components';
 
-export default styled.li`
-	text-align: left;
+export default styled.span`
 	font-size: 1.6rem;
-	line-height: 1.58;
-	letter-spacing: -0.003em;
 	color: var(--colorText);
 `;

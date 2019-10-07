@@ -22,13 +22,13 @@ export default function ColorPaletteItemLabel( props ) {
 }
 
 const LabelUI = styled.div`
-	font-size: 11px;
+	font-size: 1.1rem;
 	font-weight: bold;
 	line-height: 1;
 	text-transform: uppercase;
 
 	&.is-mainAccent {
-		font-size: 13px;
+		font-size: 1.3rem;
 	}
 
 	&.is-shadeTint {

@@ -9,14 +9,14 @@ import YouTube from 'react-youtube';
  */
 import ListItem from './list-item';
 import Paragraph from './paragraph';
-import Subtitle from './subtitle';
+import H2 from './h2';
 import Title from './title';
 
 import { Link } from '../index';
 
 export const MDXLayoutComponents = {
 	h1: ( props ) => <Title { ...props } />,
-	h2: ( props ) => <Subtitle { ...props } />,
+	h2: ( props ) => <H2 { ...props } />,
 	p: ( props ) => <Paragraph { ...props } />,
 	li: ( props ) => <ListItem { ...props } />,
 };

@@ -110,7 +110,7 @@ const ItemUI = styled.button`
 	cursor: pointer;
 	color: rgba(0, 0, 0, 0.75);
 	font: inherit;
-	font-size: 14px;
+	font-size: 1.4rem;
 	display: block;
 	padding: 12px 10px;
 	position: relative;

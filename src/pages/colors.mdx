@@ -4,7 +4,8 @@ description: 'Colors are one of the key aspects when it comes to brand recogniti
 layout: 'colors'
 ---
 
-import { Break, ColorPalettes } from '../components';
+import { Break, CalloutCard, ColorSet, Link, Text } from '../components';
+import { getColorCollections } from '../utils';
 import Template from '../templates/colors';
 
 export default Template;
@@ -15,13 +16,38 @@ Colors are one of the key aspects when it comes to brand recognition. Making sur
 
 Colors are separated into three groups:
 
--   The Blues
--   The Grays
--   The Auxiliary colors
+-   [Blue](#blue)
+-   [Gray](#gray)
+-   [Auxiliary](#auxiliary)
 
 The most recognizable colors are, obviously, the Blues and Grays. The Auxiliary hues can be used for various reasons, and come in a variety of values, with some tints (added white), tones (mix with another hue), and shades (added black)
 
-> Are you also looking for the [official logos](https://make.wordpress.org/design/handbook/design-guide/foundations/identity/)?
+<Break />
+
+<CalloutCard>
+	<Text>
+		Are you also looking for the{' '}
+		<Link
+			to="https://make.wordpress.org/design/handbook/design-guide/foundations/identity/"
+			target="_blank"
+		>
+			official logos
+		</Link>
+		?
+	</Text>
+</CalloutCard>
 
 <Break />
-<ColorPalettes />
+<Break />
+
+## Blue
+
+<ColorSet set="blue" />
+
+## Gray
+
+<ColorSet set="gray" />
+
+## Auxiliary
+
+<ColorSet set="accent" />

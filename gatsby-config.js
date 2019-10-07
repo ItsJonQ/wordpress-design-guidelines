@@ -36,6 +36,7 @@ module.exports = {
 							aliases: {},
 						},
 					},
+					`gatsby-remark-autolink-headers`,
 				],
 			},
 		},

@@ -16,7 +16,8 @@ export default function Card( props ) {
 }
 
 const CardUI = styled.div`
-	padding: 20px;
+	background: white;
 	border-radius: 3px;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+	padding: 20px;
 `;

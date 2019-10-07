@@ -16,7 +16,7 @@ export default function Positioner( props ) {
 
 const PositionUI = styled.div`
 	position: fixed;
-	bottom: 10px;
-	right: 10px;
+	bottom: 20px;
+	right: 20px;
 	z-index: 100;
 `;

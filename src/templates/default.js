@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { AppProvider } from '../providers';
+import { AppProvider } from '../components';
 
 export default function Template( props ) {
 	const { children } = props;

@@ -1,11 +1,17 @@
 import React from 'react';
-import GlobalStyles from '../src/components/global-styles';
+import { ThemeProvider } from 'styled-components';
+
+import { AppProvider, GlobalStyles } from '../src/components';
 
 export default function SiteDecorator(storyFn) {
 	return (
-		<>
-			<GlobalStyles />
-			{storyFn()}
-		</>
+		<AppProvider>
+			<ThemeProvider theme={{}}>
+				<>
+					<GlobalStyles />
+					{storyFn()}
+				</>
+			</ThemeProvider>
+		</AppProvider>
 	);
 }

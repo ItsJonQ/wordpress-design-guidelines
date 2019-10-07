@@ -12,10 +12,17 @@ import Item from './item';
 import { useClassNames } from '../../utils';
 
 export default function Flexy( props ) {
+	const { spacing, ...restProps } = props;
 	const [ classnames ] = useClassNames( props, 'Flexy' );
 
-	return <FlexyUI { ...props } className={ classnames() } />;
+	const className = classnames( spacing && `is-spacing-${ spacing }` );
+
+	return <FlexyUI { ...restProps } className={ className } />;
 }
+
+Flexy.defaultProps = {
+	spacing: 'md',
+};
 
 const alignProps = {
 	top: 'flex-start',
@@ -33,7 +40,28 @@ const FlexyUI = styled.div`
 		align-items: ${ alignProps[ align ] };
 	` }
 
-	& > * {
+	&.is-spacing-none > * {
+		margin-right: 0px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&.is-spacing-xs > * {
+		margin-right: 2px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&.is-spacing-sm > * {
+		margin-right: 4px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&.is-spacing-md > * {
 		margin-right: 8px;
 
 		&:last-child {

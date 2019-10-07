@@ -8,6 +8,7 @@ import copyToClipboard from 'copy-to-clipboard';
 /**
  * Internal dependencies
  */
+import { useAppContext } from '../app-provider';
 import Flexy from '../flexy';
 import ItemLabel from './item-label';
 import {
@@ -17,11 +18,16 @@ import {
 } from '../../utils';
 
 export default function ColorPaletteItem( props ) {
+	const { setCurrentColor } = useAppContext();
 	const [ classnames ] = useClassNames( props, 'ColorPaletteItem' );
 	const { isHeader, name, value, id } = props;
 
 	const [ isCopied, setCopied ] = useState( false );
 	const ref = useRef( null );
+
+	const currentColorName = getCurrentColorName( props );
+	const currentAccentColorName = getCurrentAccentColorName( props );
+
 	const isLightText = shouldUseLightText( value );
 	const isShadeTint = getIsShadeTint( props );
 	const isMainAccent = getIsMainAccent( props );
@@ -33,6 +39,12 @@ export default function ColorPaletteItem( props ) {
 		event.preventDefault();
 		copyToClipboard( value );
 		setCopied( true );
+
+		setCurrentColor( {
+			name: currentColorName,
+			accentName: currentAccentColorName,
+			value,
+		} );
 
 		copiedTimeout = setTimeout( () => {
 			setCopied( false );
@@ -77,15 +89,42 @@ ColorPaletteItem.defaultProps = {
 	setCurrentColor: () => undefined,
 };
 
-function getIsShadeTint( props ) {
+function getCurrentColorName( props ) {
 	const {
 		name: nameProp,
+		_meta: { baseName },
+	} = props;
+
+	const isColorAccent = getIsColorAccent( props );
+
+	return isColorAccent ? baseName : nameProp;
+}
+
+function getCurrentAccentColorName( props ) {
+	const { name: nameProp } = props;
+
+	const isMainAccent = getIsMainAccent( props );
+	const isColorAccent = getIsColorAccent( props );
+	const shouldUseAccentName = ! isMainAccent && isColorAccent;
+
+	return shouldUseAccentName ? nameProp : '';
+}
+
+function getIsColorAccent( props ) {
+	const {
 		_meta: { type },
 	} = props;
+
+	return type === 'accent';
+}
+
+function getIsShadeTint( props ) {
+	const { name: nameProp } = props;
+	const isColorAccent = getIsColorAccent( props );
 	const name = nameProp.toLowerCase();
 
 	return (
-		type === 'accent' &&
+		isColorAccent &&
 		( name.includes( 'shade' ) ||
 			name.includes( 'tint' ) ||
 			name.includes( 'tone' ) )

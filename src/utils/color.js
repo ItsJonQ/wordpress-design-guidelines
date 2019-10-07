@@ -32,6 +32,8 @@ export function getInitialColors() {
 			rgb: model.object(),
 			hex: model.hex(),
 			luminosity: model.luminosity(),
+			contrastScore: getContrastScore( value ),
+			wcagScore: getWCAGScore( value ),
 		};
 	} );
 }
@@ -214,4 +216,39 @@ export function generateCSSColorVariables() {
 	].join( '\n' );
 
 	return cssColorVariables;
+}
+
+/**
+ * Returns a contrast for a given color.
+ * @param {string} color The color.
+ * @return {number} Contrast score.
+ */
+export function getContrastScore( color ) {
+	const isLightText = shouldUseLightText( color );
+	const textColor = isLightText ? 'white' : 'black';
+
+	return colorUtil( color )
+		.contrast( colorUtil( textColor ) )
+		.toFixed( 2 );
+}
+
+/**
+ * Returns a WCAG score for a given color.
+ * @param {string} color The color.
+ * @return {string} WCAG score.
+ */
+export function getWCAGScore( color ) {
+	const ratio = getContrastScore( color );
+
+	if ( ratio >= 7.0 ) {
+		return 'AAA';
+	}
+	if ( ratio >= 4.5 ) {
+		return 'AA';
+	}
+	if ( ratio >= 3.0 ) {
+		return 'AA+';
+	}
+
+	return 'F';
 }

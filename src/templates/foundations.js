@@ -7,8 +7,13 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { AppProvider } from '../providers';
-import { GlobalStyles, SiteSidebarNav, SiteLayout, SEO } from '../components';
+import {
+	AppProvider,
+	GlobalStyles,
+	SiteSidebarNav,
+	SiteLayout,
+	SEO,
+} from '../components';
 
 export default function Template( props ) {
 	const { children } = props;

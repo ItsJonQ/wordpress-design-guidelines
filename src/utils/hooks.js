@@ -17,6 +17,8 @@ export function useAnchorLinks() {
 			if ( href.indexOf( '#' ) !== 0 ) {
 				return;
 			}
+
+			window.history.pushState( {}, null, target.href );
 			event.preventDefault();
 
 			const targetNode = document.querySelector( href );

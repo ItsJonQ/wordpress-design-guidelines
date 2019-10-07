@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import Card from './card';
+import { Card } from './index';
 import { useClassNames } from '../utils';
 
 export default function CalloutCard( props ) {

@@ -12,7 +12,7 @@ import { Link, Layout } from '../components';
 export default function Index( { data: { site } } ) {
 	return (
 		<Layout site={ site }>
-			<Link to="/colors">Colors</Link>
+			<Link to="/foundations/">Foundations</Link>
 		</Layout>
 	);
 }

@@ -3,8 +3,13 @@
  */
 import React from 'react';
 
+/**
+ * Internal dependencies
+ */
+import { AppProvider } from '../providers';
+
 export default function Template( props ) {
 	const { children } = props;
 
-	return <div>{ children }</div>;
+	return <AppProvider { ...props }>{ children }</AppProvider>;
 }

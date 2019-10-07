@@ -3,16 +3,25 @@
  */
 import React from 'react';
 import GatsbyLink from 'gatsby-link';
+import styled from 'styled-components';
+
+/**
+ * Internal dependencies
+ */
+import { useClassNames } from '../utils';
 
 export default function Link( props ) {
-	const { children, rel: relProp, target, to, ...restProps } = props;
+	const { children, isBlock, rel: relProp, target, to, ...restProps } = props;
 	const internal = /^\/(?!\/)/.test( to );
+
+	const [ classnames ] = useClassNames( props, 'Link' );
+	const className = classnames( isBlock && 'is-block' );
 
 	if ( internal ) {
 		return (
-			<GatsbyLink to={ to } { ...restProps }>
+			<GatsbyLinkUI { ...restProps } to={ to } className={ className }>
 				{ children }
-			</GatsbyLink>
+			</GatsbyLinkUI>
 		);
 	}
 
@@ -25,8 +34,22 @@ export default function Link( props ) {
 	};
 
 	return (
-		<a href={ to } { ...linkProps }>
+		<LinkUI { ...linkProps } href={ to } className={ className }>
 			{ children }
-		</a>
+		</LinkUI>
 	);
 }
+
+const modifiers = () => `
+&.is-block {
+	display: block;
+}
+`;
+
+const GatsbyLinkUI = styled( GatsbyLink )`
+	${ modifiers }
+`;
+
+const LinkUI = styled.a`
+	${ modifiers }
+`;

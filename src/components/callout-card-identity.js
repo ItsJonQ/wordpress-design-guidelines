@@ -6,7 +6,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import { Box, CalloutCard, Link, Text } from '../../components';
+import { Box, CalloutCard, Link, Text } from './index';
 
 export default function CalloutCardIdentity() {
 	return (

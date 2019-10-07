@@ -11,7 +11,7 @@ import { GlobalStyles, MDXProvider, SiteHeader } from './index';
 import { useClassNames, useAnchorLinks } from '../utils';
 
 export default function SiteLayout( props ) {
-	const { children } = props;
+	const { children, sidebar } = props;
 	const [ classnames ] = useClassNames( props, 'SiteLayout' );
 
 	useAnchorLinks();
@@ -24,7 +24,7 @@ export default function SiteLayout( props ) {
 				<PageWrapperUI className="SiteLayoutWrapper">
 					<PageUI className={ classnames() }>
 						<SidebarUI className="SiteLayoutSidebar">
-							<SidebarContentUI></SidebarContentUI>
+							<SidebarContentUI>{ sidebar }</SidebarContentUI>
 						</SidebarUI>
 						<BodyUI className="SiteLayoutBody">
 							<ContentUI className="SiteLayoutContent">
@@ -75,6 +75,6 @@ const BodyUI = styled.div`
 `;
 
 const ContentUI = styled.div`
-	padding: 40px 80px 80px;
+	padding: 40px 80px 200px;
 	max-width: 820px;
 `;

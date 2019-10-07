@@ -225,7 +225,7 @@ export function generateCSSColorVariables() {
  */
 export function getContrastScore( color ) {
 	const isLightText = shouldUseLightText( color );
-	const textColor = isLightText ? 'white' : 'black';
+	const textColor = isLightText ? 'white' : '#191e23';
 
 	return colorUtil( color )
 		.contrast( colorUtil( textColor ) )

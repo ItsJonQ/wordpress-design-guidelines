@@ -5,7 +5,6 @@
 	"author": "Jon Quach <hello@jonquach.com> (https://www.jonquach.com/)",
 	"repository": "https://github.com/itsjonq/wordpress-design-guidelines",
 	"scripts": {
-		"prestart": "yarn",
 		"start": "npm run develop",
 		"build": "gatsby build",
 		"develop": "gatsby develop --open --port 5800",

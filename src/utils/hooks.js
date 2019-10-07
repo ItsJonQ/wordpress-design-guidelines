@@ -5,6 +5,52 @@ import { useEffect } from 'react';
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed';
 import classnamesUtil from 'classnames';
 
+export function useAnchorLinks() {
+	useEffect( () => {
+		const anchorNodes = document.querySelectorAll( 'a.anchor' );
+		const linkNodes = document.querySelectorAll( 'a:not(.anchor)' );
+
+		const handleOnClickLink = ( event ) => {
+			const { target } = event;
+			const href = target.getAttribute( 'href' );
+
+			if ( href.indexOf( '#' ) !== 0 ) {
+				return;
+			}
+			event.preventDefault();
+
+			const targetNode = document.querySelector( href );
+			if ( ! targetNode ) {
+				return;
+			}
+			targetNode.scrollIntoView( {
+				behavior: 'smooth',
+			} );
+		};
+
+		const handleOnClickAnchor = ( event ) => {
+			event.preventDefault();
+		};
+
+		Array.from( linkNodes ).forEach( ( node ) => {
+			node.addEventListener( 'click', handleOnClickLink );
+		} );
+
+		Array.from( anchorNodes ).forEach( ( node ) => {
+			node.addEventListener( 'click', handleOnClickAnchor );
+		} );
+
+		return () => {
+			Array.from( linkNodes ).forEach( ( node ) => {
+				node.removeEventListener( 'click', handleOnClickLink );
+			} );
+			Array.from( anchorNodes ).forEach( ( node ) => {
+				node.removeEventListener( 'click', handleOnClickAnchor );
+			} );
+		};
+	}, [] );
+}
+
 export function useClassNames( props, initialClassName = '' ) {
 	const { className: classNameProp } = props;
 	const baseClassNames = classnamesUtil( classNameProp, initialClassName );

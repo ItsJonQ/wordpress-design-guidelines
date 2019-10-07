@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import styled from 'styled-components';
-import { typography, space, color } from 'styled-system';
+import { typography, space } from 'styled-system';
 
 /**
  * Internal dependencies
@@ -16,4 +16,4 @@ export default function Box( props ) {
 	return <BoxUI { ...props } className={ classnames() } />;
 }
 
-const BoxUI = styled( 'div' )( typography, space, color );
+const BoxUI = styled( 'div' )( typography, space );

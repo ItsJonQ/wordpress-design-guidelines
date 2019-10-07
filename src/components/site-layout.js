@@ -2,35 +2,39 @@
  * External dependencies
  */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 /**
  * Internal dependencies
  */
 import { GlobalStyles, MDXProvider, SiteHeader } from './index';
-import { useClassNames } from '../utils';
+import { useClassNames, useAnchorLinks } from '../utils';
 
 export default function SiteLayout( props ) {
 	const { children } = props;
 	const [ classnames ] = useClassNames( props, 'SiteLayout' );
 
+	useAnchorLinks();
+
 	return (
-		<>
-			<GlobalStyles />
-			<SiteHeader />
-			<PageWrapperUI className="SiteLayoutWrapper">
-				<PageUI className={ classnames() }>
-					<SidebarUI className="SiteLayoutSidebar">
-						<SidebarContentUI></SidebarContentUI>
-					</SidebarUI>
-					<BodyUI className="SiteLayoutBody">
-						<ContentUI className="SiteLayoutContent">
-							<MDXProvider>{ children }</MDXProvider>
-						</ContentUI>
-					</BodyUI>
-				</PageUI>
-			</PageWrapperUI>
-		</>
+		<ThemeProvider theme={ {} }>
+			<>
+				<GlobalStyles />
+				<SiteHeader />
+				<PageWrapperUI className="SiteLayoutWrapper">
+					<PageUI className={ classnames() }>
+						<SidebarUI className="SiteLayoutSidebar">
+							<SidebarContentUI></SidebarContentUI>
+						</SidebarUI>
+						<BodyUI className="SiteLayoutBody">
+							<ContentUI className="SiteLayoutContent">
+								<MDXProvider>{ children }</MDXProvider>
+							</ContentUI>
+						</BodyUI>
+					</PageUI>
+				</PageWrapperUI>
+			</>
+		</ThemeProvider>
 	);
 }
 

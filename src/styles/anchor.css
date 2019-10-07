@@ -17,6 +17,10 @@ a.anchor svg {
 	visibility: hidden;
 }
 
+a.anchor:active svg {
+	opacity: 0.5;
+}
+
 h1:hover a.anchor svg,
 h2:hover a.anchor svg,
 h3:hover a.anchor svg,

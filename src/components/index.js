@@ -6,6 +6,7 @@ export { default as Box } from './box';
 export { default as Card } from './card';
 export { default as CalloutCard } from './callout-card';
 export { default as ColorPalette } from './color-palette';
+export { default as ColorInfo } from './color-info';
 export { default as Container } from './container';
 export { default as ColorSet } from './color-set';
 export { default as Flexy } from './flexy';

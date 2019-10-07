@@ -55,7 +55,7 @@ const PageUI = styled.div`
 
 const SidebarUI = styled.div`
 	position: relative;
-	width: 300px;
+	width: 250px;
 	border-right: 1px solid rgba(0, 0, 0, 0.04);
 	margin-left: calc((100vw - 1080px) / 2);
 `;

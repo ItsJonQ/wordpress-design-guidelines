@@ -7,14 +7,17 @@ import styled, { ThemeProvider } from 'styled-components';
 /**
  * Internal dependencies
  */
-import { GlobalStyles, MDXProvider, SiteHeader } from './index';
-import { useClassNames, useAnchorLinks } from '../utils';
+import { GlobalStyles, MDXProvider, SiteHeader } from '../index';
+import { Content } from './index';
+import { useClassNames, useAnchorLinks } from '../../utils';
 
 export default function SiteLayout( props ) {
 	const { children, sidebar } = props;
 	const [ classnames ] = useClassNames( props, 'SiteLayout' );
 
 	useAnchorLinks();
+
+	const hasSidebar = !! sidebar;
 
 	return (
 		<ThemeProvider theme={ {} }>
@@ -23,13 +26,15 @@ export default function SiteLayout( props ) {
 				<SiteHeader />
 				<PageWrapperUI className="SiteLayoutWrapper">
 					<PageUI className={ classnames() }>
-						<SidebarUI className="SiteLayoutSidebar">
-							<SidebarContentUI>{ sidebar }</SidebarContentUI>
-						</SidebarUI>
+						{ hasSidebar && (
+							<SidebarUI className="SiteLayoutSidebar">
+								<SidebarContentUI>{ sidebar }</SidebarContentUI>
+							</SidebarUI>
+						) }
 						<BodyUI className="SiteLayoutBody">
-							<ContentUI className="SiteLayoutContent">
+							<Content isCentered={ ! hasSidebar }>
 								<MDXProvider>{ children }</MDXProvider>
-							</ContentUI>
+							</Content>
 						</BodyUI>
 					</PageUI>
 				</PageWrapperUI>
@@ -72,9 +77,4 @@ const SidebarContentUI = styled.div`
 const BodyUI = styled.div`
 	background: white;
 	width: 100%;
-`;
-
-const ContentUI = styled.div`
-	padding: 40px 80px 200px;
-	max-width: 860px;
 `;

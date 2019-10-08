@@ -35,3 +35,6 @@ export { default as SiteLayout } from './site-layout';
 export { default as SiteSidebarNav } from './site-sidebar-nav';
 export { default as Text } from './text';
 export { default as Textarea } from './textarea';
+export { default as WordPressLogo } from './wordpress-logo';
+
+export * from './svg';

@@ -62,3 +62,14 @@ exports.onCreateNode = ( { node, actions } ) => {
 		} );
 	}
 };
+
+exports.createPages = ( { actions } ) => {
+	const { createRedirect } = actions;
+
+	createRedirect( {
+		fromPath: `/`,
+		toPath: `/foundations/`,
+		redirectInBrowser: true,
+		isPermanent: true,
+	} );
+};

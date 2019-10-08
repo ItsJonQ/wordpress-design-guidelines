@@ -3,8 +3,14 @@
  */
 import React from 'react';
 
+/**
+ * Internal dependencies
+ */
+import { SiteLayout } from '../components';
+
 export default () => (
-	<div>
+	<SiteLayout>
 		<h1>404</h1>
-	</div>
+		<p>Page not found</p>
+	</SiteLayout>
 );

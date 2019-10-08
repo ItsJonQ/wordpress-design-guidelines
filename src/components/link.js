@@ -11,11 +11,19 @@ import styled from 'styled-components';
 import { useClassNames } from '../utils';
 
 export default function Link( props ) {
-	const { children, isBlock, rel: relProp, target, to, ...restProps } = props;
+	const {
+		children,
+		isBlock,
+		isPlain,
+		rel: relProp,
+		target,
+		to,
+		...restProps
+	} = props;
 	const internal = /^\/(?!\/)/.test( to );
 
 	const [ classnames ] = useClassNames( props, 'Link' );
-	const className = classnames( isBlock && 'is-block' );
+	const className = classnames( isBlock && 'is-block', isPlain && 'is-plain' );
 
 	if ( internal ) {
 		return (
@@ -43,6 +51,10 @@ export default function Link( props ) {
 const modifiers = () => `
 &.is-block {
 	display: block;
+}
+
+&.is-plain {
+	text-decoration: none;
 }
 `;
 

@@ -4,6 +4,7 @@
 import { useEffect } from 'react';
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed';
 import classnamesUtil from 'classnames';
+import copyToClipboard from 'copy-to-clipboard';
 
 export function useAnchorLinks() {
 	useEffect( () => {
@@ -31,7 +32,10 @@ export function useAnchorLinks() {
 		};
 
 		const handleOnClickAnchor = ( event ) => {
+			const { currentTarget: target } = event;
 			event.preventDefault();
+			window.history.pushState( {}, null, target.href );
+			copyToClipboard( target.href );
 		};
 
 		Array.from( linkNodes ).forEach( ( node ) => {

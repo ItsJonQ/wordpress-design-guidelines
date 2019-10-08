@@ -9,13 +9,12 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import SVG from './svg';
-import Path from './path';
+import { SVG, Path } from '../';
 
 export default class Dashicon extends React.Component {
 	static defaultProps = {
 		icon: 'admin-appearance',
-	}
+	};
 
 	shouldComponentUpdate( nextProps ) {
 		return (

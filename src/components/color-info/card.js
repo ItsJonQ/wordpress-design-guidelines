@@ -7,18 +7,13 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { Box, Card as BaseCard, Flexy, HR, Text } from '../index';
+import { Box, Flexy, HR, Text } from '../index';
 import { HexRGB, Swatch } from './index';
 import {
 	getContrastScore,
 	shouldUseLightText,
 	useClassNames,
 } from '../../utils';
-
-const defaultProps = {
-	color: '#0055ff',
-	name: 'WordPress Blue',
-};
 
 export default function Card( props ) {
 	const [ classnames ] = useClassNames( 'ColorInfoCard', props );
@@ -28,7 +23,7 @@ export default function Card( props ) {
 	const textLabel = isLightText ? 'light' : 'dark';
 
 	return (
-		<CardUI className={ classnames() }>
+		<Box className={ classnames() }>
 			<TitleUI>{ name }</TitleUI>
 			{ subtitle && (
 				<SubtitleUI>
@@ -57,16 +52,14 @@ export default function Card( props ) {
 			</Text>
 			<HR spacing="sm" />
 			<HexRGB color={ color } />
-		</CardUI>
+		</Box>
 	);
 }
 
-Card.defaultProps = defaultProps;
-
-const CardUI = styled( BaseCard )`
-	max-height: 480px;
-	width: 280px;
-`;
+Card.defaultProps = {
+	color: '#0055ff',
+	name: 'WordPress Blue',
+};
 
 const TitleUI = styled.div`
 	font-size: 1.6rem;

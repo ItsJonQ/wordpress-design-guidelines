@@ -19,7 +19,7 @@ export default function Swatch( props ) {
 	const style = {
 		...styleProp,
 		backgroundColor: color,
-		color: isLightText ? 'white' : 'black',
+		color: isLightText ? 'white' : '#191e23',
 	};
 
 	return (

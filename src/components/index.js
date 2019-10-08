@@ -22,6 +22,7 @@ export { default as List } from './list';
 export { default as MDXProvider } from './mdx-provider';
 export { default as NavLink } from './nav-link';
 export { default as SEO } from './seo';
+export { default as Sidebox } from './sidebox';
 export { default as SiteHeader } from './site-header';
 export { default as SiteLayout } from './site-layout';
 export { default as SiteSidebarNav } from './site-sidebar-nav';

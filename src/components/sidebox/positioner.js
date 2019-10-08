@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { useClassNames } from '../../utils';
 
 export default function Positioner( props ) {
-	const [ classnames ] = useClassNames( 'ColorInfoPositioner', props );
+	const [ classnames ] = useClassNames( 'SideboxPositioner', props );
 	return <PositionUI { ...props } classNames={ classnames() } />;
 }
 

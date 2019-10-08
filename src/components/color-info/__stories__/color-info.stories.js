@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 /**
  * Internal dependencies
  */
-import { ColorInfo } from './index';
+import { ColorInfo } from '../index';
 
 const stories = storiesOf( 'ColorInfo/ColorInfo', module );
 

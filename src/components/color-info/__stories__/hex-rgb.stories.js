@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 /**
  * Internal dependencies
  */
-import { HexRGB } from './index';
+import { HexRGB } from '../index';
 
 const stories = storiesOf( 'ColorInfo/HexRGB', module );
 

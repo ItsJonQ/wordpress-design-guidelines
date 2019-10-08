@@ -22,7 +22,7 @@ export default function ValueInput( props ) {
 	return (
 		<Box className={ classnames() } style={ style }>
 			<InputWrapperUI>
-				<Input { ...restProps } value={ value } size="sm" />
+				<Input { ...restProps } value={ value } size="sm" readOnly />
 			</InputWrapperUI>
 			<Text isMuted size={ 10 } isUppercase isBlock align={ 'center' }>
 				{ label }

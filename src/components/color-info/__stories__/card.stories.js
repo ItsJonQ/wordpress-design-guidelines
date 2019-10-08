@@ -8,7 +8,7 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { Card } from './index';
+import { Card } from '../index.';
 
 const stories = storiesOf( 'ColorInfo/Card', module );
 

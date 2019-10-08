@@ -2,47 +2,46 @@
  * External dependencies
  */
 import React, { useState } from 'react';
+import copyToClipboard from 'copy-to-clipboard';
 
 /**
  * WordPress dependencies
  */
-import { ClipboardButton as WPClipBoardButton } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-import { useClassNames, noop } from '../utils';
+import { useClassNames, useClearTimeout, noop } from '../utils';
 
 export default function ClipboardButton( props ) {
-	const [ isCopied, setIsCopied ] = useState( false );
+	const { text, timeout, ...restProps } = props;
+	const [ isCopied, setCopied ] = useState( false );
 	const [ classnames ] = useClassNames( props, 'ClipboardButton' );
-	const { onCopy, onFinishCopy } = props;
 
-	const handleOnCopy = () => {
-		setIsCopied( true );
-		onCopy();
-	};
+	let copiedTimeout;
+	useClearTimeout( copiedTimeout );
 
-	const handleOnFinishedCopy = () => {
-		setIsCopied( false );
-		onFinishCopy();
+	const handleOnClick = ( event ) => {
+		event.preventDefault();
+		copyToClipboard( text );
+		setCopied( true );
+
+		copiedTimeout = setTimeout( () => {
+			setCopied( false );
+		}, timeout );
 	};
 
 	return (
-		<WPClipBoardButton
-			{ ...props }
-			className={ classnames() }
-			onCopy={ handleOnCopy }
-			onFinishCopy={ handleOnFinishedCopy }
-		>
+		<Button { ...restProps } className={ classnames() } onClick={ handleOnClick }>
 			{ isCopied ? 'Copied!' : 'Copy' }
-		</WPClipBoardButton>
+		</Button>
 	);
 }
 
 ClipboardButton.defaultProps = {
 	isDefault: true,
 	isSmall: true,
-	onCopy: noop,
-	onFinishCopy: noop,
+	onClick: noop,
+	timeout: 1500,
 };

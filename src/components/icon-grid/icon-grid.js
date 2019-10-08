@@ -32,7 +32,11 @@ export default function IconGrid( props ) {
 		<ContainerUI>
 			<SearchBarUI>
 				<Box mb={ 1 }>
-					<Input onChange={ handleOnChange } value={ query } />
+					<Input
+						onChange={ handleOnChange }
+						placeholder="Search icon..."
+						value={ query }
+					/>
 				</Box>
 				<Text size={ 13 } isMuted>
 					<strong>{ iconCount }</strong> { iconCountLabel }

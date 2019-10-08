@@ -12,7 +12,7 @@ export { default as ColorPalette } from './color-palette';
 export { default as ColorInfo } from './color-info';
 export { default as Container } from './container';
 export { default as ColorSet } from './color-set';
-export { default as CopyCode } from './copy-code';
+export { default as CopyCode } from './copy-code/copy-code';
 export { default as Dashicon } from './dashicon';
 export { default as Flexy } from './flexy';
 export { default as GlobalStyles } from './global-styles';

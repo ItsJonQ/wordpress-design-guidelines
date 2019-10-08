@@ -4,6 +4,7 @@
 export { default as AppProvider } from './app-provider';
 export { default as Break } from './break';
 export { default as Box } from './box';
+export { default as Button } from './button';
 export { default as Card } from './card';
 export { default as CalloutCard } from './callout-card';
 export { default as CalloutCardIdentity } from './callout-card-identity';

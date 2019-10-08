@@ -22,7 +22,6 @@
 		"@hot-loader/react-dom": "16.9.0",
 		"@mdx-js/mdx": "^1.0.21",
 		"@mdx-js/react": "^1.0.21",
-		"@wordpress/components": "8.3.1",
 		"@wordpress/eslint-plugin": "2.4.0",
 		"babel-plugin-styled-components": "^1.10.6",
 		"change-case": "3.1.0",

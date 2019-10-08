@@ -7,7 +7,10 @@ import copyToClipboard from 'copy-to-clipboard';
 /**
  * WordPress dependencies
  */
-import { Button } from '@wordpress/components';
+/**
+ * Internal dependencies
+ */
+import { Button } from './index';
 
 /**
  * Internal dependencies
@@ -40,8 +43,8 @@ export default function ClipboardButton( props ) {
 }
 
 ClipboardButton.defaultProps = {
-	isDefault: true,
-	isSmall: true,
+	variant: 'default',
+	size: 'sm',
 	onClick: noop,
 	timeout: 1500,
 };

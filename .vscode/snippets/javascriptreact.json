@@ -1,0 +1,50 @@
+{
+	"Create Component": {
+		"prefix": "rcmp",
+		"body": [
+			"/**",
+			" * External dependencies",
+			" */",
+			"import React from 'react';",
+			"import styled from 'styled-components';",
+			"",
+			"/**",
+			" * Internal dependencies",
+			" */",
+			"import { useClassNames } from '../utils';",
+			"",
+			"export default function Component( props ) {",
+			"	const [ classnames ] = useClassNames( props, 'Component' );",
+			"",
+			"	return <ComponentUI { ...props } className={ classnames() } />;",
+			"}",
+			"",
+			"const ComponentUI = styled.div``;",
+			""
+		],
+		"description": "Create Component"
+	},
+	"Create Story": {
+		"prefix": "stry",
+		"body": [
+			"/**",
+			" * External dependencies",
+			" */",
+			"import React from 'react';",
+			"import { storiesOf } from '@storybook/react';",
+			"",
+			"/**",
+			" * Internal dependencies",
+			" */",
+			"import { Component } from '../index';",
+			"",
+			"const stories = storiesOf( 'Component/SubComponent', module );",
+			"",
+			"stories.add( 'Default', () => {",
+			"	return <Component />;",
+			"} );",
+			""
+		],
+		"description": "Create Story"
+	}
+}

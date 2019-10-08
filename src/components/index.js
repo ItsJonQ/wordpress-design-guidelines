@@ -11,6 +11,7 @@ export { default as ColorPalette } from './color-palette';
 export { default as ColorInfo } from './color-info';
 export { default as Container } from './container';
 export { default as ColorSet } from './color-set';
+export { default as Dashicon } from './dashicon';
 export { default as Flexy } from './flexy';
 export { default as GlobalStyles } from './global-styles';
 export { default as HR } from './hr';

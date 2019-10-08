@@ -45,6 +45,10 @@ const Navigation = () => {
 		},
 		{
 			to: '/foundations/typography/',
+			label: 'Typography',
+		},
+		{
+			to: '/foundations/iconography/',
 			label: 'Iconography',
 		},
 	];

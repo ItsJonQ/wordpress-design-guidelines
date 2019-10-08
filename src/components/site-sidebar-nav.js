@@ -32,8 +32,19 @@ export default function SiteSidebarNav( props ) {
 
 const SidebarNavUI = styled.nav`
 	a {
+		color: currentColor;
+		opacity: 0.7;
 		text-decoration: none;
 		padding: 4px 0;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		&.is-active {
+			color: var(--colorWordPressBlue);
+			opacity: 1;
+		}
 	}
 `;
 

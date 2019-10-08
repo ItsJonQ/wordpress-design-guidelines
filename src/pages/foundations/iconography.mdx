@@ -3,6 +3,8 @@ title: Iconography
 description: 'Dashicons are the icons used throughout the WordPress admin. There are several reasons why you might want to design Dashicons.'
 ---
 
+import { Break, IconGrid, IconInfo } from '../../components';
+
 import Template from '../../templates/foundations';
 
 export default Template;
@@ -13,9 +15,11 @@ Dashicons are the icons used throughout the WordPress admin. There are several r
 
 If you want do make Dashicons, following these guidelines will help ensure that they look and function great.
 
-## Style
+## Icons
 
-While the icons should be as clear as possible, Dashicons are also friendly and reassuring. Slightly rounded edges are encouraged over sharp, 90º angles. Try a squircle. When given the choice, angle them to the right; e.g., the “Tools” icon starts off on the lower-left and angles to the upper-right of the canvas.
+<IconGrid />
+<IconInfo />
+<Break />
 
 ## Icon Guidelines
 
@@ -26,7 +30,12 @@ While the icons should be as clear as possible, Dashicons are also friendly and 
 -   They should be universal. Are your own demographics influencing the symbol you’ve chosen for the icon?
 -   They should be consistent. Examine your icon in context. How would it look in the wp-admin environment?
 
+## Style
+
+While the icons should be as clear as possible, Dashicons are also friendly and reassuring. Slightly rounded edges are encouraged over sharp, 90º angles. Try a squircle. When given the choice, angle them to the right; e.g., the “Tools” icon starts off on the lower-left and angles to the upper-right of the canvas.
+
 ## Resources
 
 -   [Dashicon Index](https://developer.wordpress.org/resource/dashicons/#welcome-comments)
 -   [Dashicon Styleguide](https://make.wordpress.org/design/dashicons-style-guide/)
+-   [Dashicons Github Repo](https://github.com/wordpress/dashicons)

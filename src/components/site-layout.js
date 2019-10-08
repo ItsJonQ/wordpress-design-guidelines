@@ -76,5 +76,5 @@ const BodyUI = styled.div`
 
 const ContentUI = styled.div`
 	padding: 40px 80px 200px;
-	max-width: 820px;
+	max-width: 860px;
 `;

@@ -2,12 +2,12 @@
  * External dependencies
  */
 import React from 'react';
-import styled from 'styled-components';
 
 /**
  * Internal dependencies
  */
 import { Box, Flexy, HR, Text } from '../index';
+import { Title, Subtitle } from '../sidebox';
 import { HexRGB, Swatch } from './index';
 import {
 	getContrastScore,
@@ -24,14 +24,8 @@ export default function Card( props ) {
 
 	return (
 		<Box className={ classnames() }>
-			<TitleUI>{ name }</TitleUI>
-			{ subtitle && (
-				<SubtitleUI>
-					<Text isMuted size={ 13 }>
-						{ subtitle }
-					</Text>
-				</SubtitleUI>
-			) }
+			<Title>{ name }</Title>
+			<Subtitle>{ subtitle }</Subtitle>
 			<Box mb={ 2 }>
 				<Flexy>
 					<Flexy.Item>
@@ -43,7 +37,7 @@ export default function Card( props ) {
 						<Text isBlock isMuted size={ 12 }>
 							Contrast Score
 						</Text>
-						<Text>{ contrastScore }</Text>
+						<Text isBlock>{ contrastScore }</Text>
 					</Flexy.Block>
 				</Flexy>
 			</Box>
@@ -60,14 +54,3 @@ Card.defaultProps = {
 	color: '#0055ff',
 	name: 'WordPress Blue',
 };
-
-const TitleUI = styled.div`
-	font-size: 1.6rem;
-	font-weight: bold;
-	margin-bottom: 8px;
-`;
-
-const SubtitleUI = styled.div`
-	margin-top: -8px;
-	margin-bottom: 8px;
-`;

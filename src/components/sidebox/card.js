@@ -17,6 +17,9 @@ export default function Card( props ) {
 }
 
 const CardUI = styled( BaseCard )`
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.15),
+		0 10px 30px 0 rgba(0, 0, 0, 0.1);
 	max-height: 480px;
+	overflow-y: auto;
 	width: 280px;
 `;

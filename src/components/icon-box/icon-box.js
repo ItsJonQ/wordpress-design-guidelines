@@ -7,15 +7,27 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
+import { useAppContext } from '../app-provider';
 import { Dashicon } from '../index';
-import { useClassNames } from '../../utils';
+import { useClassNames, noop } from '../../utils';
 
 export default function IconBox( props ) {
+	const { setCurrentIcon } = useAppContext();
 	const [ classnames ] = useClassNames( props, 'IconBox' );
-	const { icon } = props;
+	const { icon, onClick } = props;
+
+	const handleOnClick = ( event ) => {
+		onClick( event );
+		setCurrentIcon( icon );
+	};
 
 	return (
-		<CardUI { ...props } className={ classnames() } id={ icon }>
+		<CardUI
+			{ ...props }
+			className={ classnames() }
+			id={ `icon-${ icon }` }
+			onClick={ handleOnClick }
+		>
 			<IconWrapperUI>
 				<Dashicon icon={ icon } />
 			</IconWrapperUI>
@@ -24,13 +36,18 @@ export default function IconBox( props ) {
 	);
 }
 
+IconBox.defaultProps = {
+	icon: 'admin-appearance',
+	onClick: noop,
+};
+
 const CardUI = styled.button`
 	align-items: center;
 	appearance: none;
 	background: white;
 	border-radius: 8px;
 	border: 2px solid transparent;
-	color: var(--colorLightGray400);
+	color: var(--colorDarkGray400);
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
@@ -47,16 +64,18 @@ const CardUI = styled.button`
 	}
 
 	&:hover {
-		background: var(--colorLightGray100);
+		background: var(--colorLightGray200);
+	}
+
+	&:focus,
+	&:hover {
+		path {
+			fill: var(--colorDarkGray700);
+		}
 	}
 
 	&:active {
 		background: #e6f6fb;
-	}
-
-	&:hover,
-	&:focus {
-		color: var(--colorLightGray700);
 	}
 `;
 

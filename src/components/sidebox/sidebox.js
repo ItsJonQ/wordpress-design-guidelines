@@ -6,11 +6,14 @@ import React, { useState, useEffect } from 'react';
 /**
  * Internal dependencies
  */
-import { Card, Positioner } from './index';
+import { Card, Positioner, Subtitle, Title } from './index';
 import { useSpring, animated } from '../spring';
 import { useClassNames } from '../../utils';
 
-export default function ColorInfo( props ) {
+Sidebox.Title = Title;
+Sidebox.Subtitle = Subtitle;
+
+export default function Sidebox( props ) {
 	const [ classnames ] = useClassNames( 'Sidebox', props );
 	const { children, isOpen: isOpenProp, ...restProps } = props;
 	const [ isOpen, setIsOpen ] = useState( isOpenProp );

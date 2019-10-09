@@ -7,7 +7,7 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { List, NavLink } from './index';
+import { Box, Heading, List, NavLink } from './index';
 import { useClassNames } from '../utils';
 
 export default function SiteSidebarNav( props ) {
@@ -16,7 +16,13 @@ export default function SiteSidebarNav( props ) {
 
 	return (
 		<SidebarNavUI { ...props } className={ classnames() }>
-			{ title && <TitleUI>{ title }</TitleUI> }
+			{ title && (
+				<Box mb={ 3 }>
+					<Heading size="xs" shade="extraMuted">
+						{ title }
+					</Heading>
+				</Box>
+			) }
 			<List isUnstyled>
 				{ links.map( ( link ) => (
 					<List.Item key={ link.to }>
@@ -33,6 +39,7 @@ export default function SiteSidebarNav( props ) {
 const SidebarNavUI = styled.nav`
 	a {
 		color: currentColor;
+		font-size: 1.5rem;
 		opacity: 0.7;
 		text-decoration: none;
 		padding: 4px 0;
@@ -46,10 +53,4 @@ const SidebarNavUI = styled.nav`
 			opacity: 1;
 		}
 	}
-`;
-
-const TitleUI = styled.div`
-	font-size: 1.8rem;
-	font-weight: 600;
-	margin: 20px 0 16px;
 `;

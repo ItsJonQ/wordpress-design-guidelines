@@ -17,6 +17,7 @@ export { default as CopyCode } from './copy-code/copy-code';
 export { default as Dashicon } from './dashicon';
 export { default as Flexy } from './flexy';
 export { default as GlobalStyles } from './global-styles';
+export { default as Heading } from './heading';
 export { default as HR } from './hr';
 export { default as IconBox } from './icon-box';
 export { default as IconGrid } from './icon-grid';

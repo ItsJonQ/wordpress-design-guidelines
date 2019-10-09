@@ -15,6 +15,7 @@ export default function Container( props ) {
 }
 
 const ContainerUI = styled.div`
+	padding: 0 16px;
 	margin: auto;
 	max-width: 1080px;
 	width: 100%;

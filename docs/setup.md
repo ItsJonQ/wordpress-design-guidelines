@@ -55,7 +55,7 @@ The local development URL should look something like this:
 
 [http://localhost:5800](http://localhost:5800)
 
-![Local development](./images/local-dev-screenshot.png)
+![Local development](../images/local-dev-screenshot.png)
 
 And with that, you're ready to start exploring, designing, and developing! 🙌
 

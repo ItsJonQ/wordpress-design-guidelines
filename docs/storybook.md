@@ -28,7 +28,7 @@ Several of the React components in the project have stories. You'll find them un
 
 ```
 src/
-	\ compoennts/
+	\ components/
 		\ copy-code/
 			| __stories__/
 			|	\ copy-code.stories.js

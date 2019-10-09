@@ -2,6 +2,7 @@
 	"recommendations": [
 		"EditorConfig.editorconfig",
 		"esbenp.prettier-vscode",
-		"jpoissonnier.vscode-styled-components"
+		"jpoissonnier.vscode-styled-components",
+		"silvenon.mdx"
 	]
 }

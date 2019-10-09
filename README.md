@@ -1,4 +1,4 @@
-# WordPress Design Guidelines
+# 📚 WordPress Design Guidelines
 
 > Documentation, tools, and resources for designing WordPress.
 

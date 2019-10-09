@@ -20,7 +20,7 @@ export default function Card( props ) {
 	const { color, name, subtitle } = props;
 	const contrastScore = getContrastScore( color );
 	const isLightText = shouldUseLightText( color );
-	const textLabel = isLightText ? 'light' : 'dark';
+	const textLabel = isLightText ? 'white' : 'Dark Gray 900';
 
 	return (
 		<Box className={ classnames() }>

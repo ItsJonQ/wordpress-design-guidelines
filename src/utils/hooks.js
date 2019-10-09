@@ -12,7 +12,7 @@ export function useAnchorLinks() {
 		const linkNodes = document.querySelectorAll( 'a:not(.anchor)' );
 
 		const handleOnClickLink = ( event ) => {
-			const { target } = event;
+			const { currentTarget: target } = event;
 			const href = target.getAttribute( 'href' );
 
 			if ( href.indexOf( '#' ) !== 0 ) {

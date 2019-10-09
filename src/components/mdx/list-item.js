@@ -7,6 +7,5 @@ export default styled.li`
 	text-align: left;
 	font-size: 1.6rem;
 	line-height: 1.58;
-	letter-spacing: -0.003em;
-	color: var(--colorText);
+	color: currentColor;
 `;

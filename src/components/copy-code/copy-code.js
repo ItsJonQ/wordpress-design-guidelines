@@ -19,7 +19,7 @@ export default function CopyCode( props ) {
 			<Textarea { ...restProps } value={ value } />
 			<TopBarUI>
 				<LabelUI>
-					<Text size={ 12 } isBlock isMuted>
+					<Text size={ 12 } isBlock shade="muted">
 						{ label }
 					</Text>
 				</LabelUI>

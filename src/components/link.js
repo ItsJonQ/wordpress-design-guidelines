@@ -13,6 +13,7 @@ import { useClassNames } from '../utils';
 export default function Link( props ) {
 	const {
 		children,
+		href,
 		isBlock,
 		isPlain,
 		rel: relProp,
@@ -20,7 +21,7 @@ export default function Link( props ) {
 		to,
 		...restProps
 	} = props;
-	const internal = /^\/(?!\/)/.test( to );
+	const internal = /^\/(?!\/)/.test( to ) && ! href;
 
 	const [ classnames ] = useClassNames( props, 'Link' );
 	const className = classnames( isBlock && 'is-block', isPlain && 'is-plain' );
@@ -42,7 +43,7 @@ export default function Link( props ) {
 	};
 
 	return (
-		<LinkUI { ...linkProps } href={ to } className={ className }>
+		<LinkUI { ...linkProps } href={ href || to } className={ className }>
 			{ children }
 		</LinkUI>
 	);

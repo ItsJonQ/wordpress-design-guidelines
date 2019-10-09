@@ -33,7 +33,9 @@ const TextareaUI = styled.textarea`
 	border-radius: 4px;
 	border: 1px solid var(--colorLightGray800);
 	box-shadow: 0 0 0 transparent;
+	display: block;
 	font-size: 1.6rem;
+	margin: 0;
 	padding: 6px 8px;
 	width: 100%;
 	transition: box-shadow 0.1s linear;

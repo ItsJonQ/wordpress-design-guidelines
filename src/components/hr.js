@@ -10,16 +10,25 @@ import styled from 'styled-components';
 import { useClassNames } from '../utils';
 
 export default function HR( props ) {
-	const { spacing, ...restProps } = props;
+	const { size, spacing, style: styleProp, ...restProps } = props;
 	const [ classnames ] = useClassNames( props, 'HR' );
 
 	const className = classnames( spacing && `is-spacing-${ spacing }` );
 
-	return <HorizontalRuleUI { ...restProps } className={ className } />;
+	const style = {
+		...styleProp,
+		borderTopWidth: size,
+	};
+
+	return (
+		<HorizontalRuleUI { ...restProps } className={ className } style={ style } />
+	);
 }
 
 HR.defaultProps = {
+	size: 1,
 	spacing: 'md',
+	style: {},
 };
 
 const HorizontalRuleUI = styled.hr`

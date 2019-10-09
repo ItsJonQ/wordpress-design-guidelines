@@ -34,14 +34,14 @@ export default function Card( props ) {
 						</Box>
 					</Flexy.Item>
 					<Flexy.Block>
-						<Text isBlock isMuted size={ 12 }>
+						<Text isBlock shade="muted" size={ 12 }>
 							Contrast Score
 						</Text>
 						<Text isBlock>{ contrastScore }</Text>
 					</Flexy.Block>
 				</Flexy>
 			</Box>
-			<Text isMuted size={ 13 }>
+			<Text shade="muted" size={ 13 }>
 				Use <strong>{ textLabel }</strong> text with this color
 			</Text>
 			<HR spacing="sm" />

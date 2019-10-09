@@ -4,6 +4,7 @@
 import styled from 'styled-components';
 
 export default styled.h1`
+	color: black;
 	line-height: 1.1;
 	margin: 30px 0 20px;
 	padding: 10px 0;

@@ -24,7 +24,7 @@ export default function ValueInput( props ) {
 			<InputWrapperUI>
 				<Input { ...restProps } value={ value } size="sm" readOnly />
 			</InputWrapperUI>
-			<Text isMuted size={ 10 } isUppercase isBlock align={ 'center' }>
+			<Text shade="muted" size={ 10 } isUppercase isBlock align={ 'center' }>
 				{ label }
 			</Text>
 		</Box>

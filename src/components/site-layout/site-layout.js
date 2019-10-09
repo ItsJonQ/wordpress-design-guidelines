@@ -8,7 +8,7 @@ import styled, { ThemeProvider } from 'styled-components';
  * Internal dependencies
  */
 import { Container, GlobalStyles, MDXProvider, SiteHeader } from '../index';
-import { Content } from './index';
+import { Content, Footer } from './index';
 import { useClassNames, useAnchorLinks } from '../../utils';
 
 export default function SiteLayout( props ) {
@@ -18,6 +18,7 @@ export default function SiteLayout( props ) {
 	useAnchorLinks();
 
 	const hasSidebar = !! sidebar;
+	const topId = 'top';
 
 	return (
 		<ThemeProvider theme={ {} }>
@@ -25,6 +26,7 @@ export default function SiteLayout( props ) {
 				<GlobalStyles />
 				<SiteHeader />
 				<Container>
+					<div id={ topId } />
 					<PageWrapperUI className="SiteLayoutWrapper">
 						<PageUI className={ classnames() }>
 							{ hasSidebar && (
@@ -38,6 +40,7 @@ export default function SiteLayout( props ) {
 								<Content isCentered={ ! hasSidebar }>
 									<MDXProvider>{ children }</MDXProvider>
 								</Content>
+								<Footer />
 							</BodyUI>
 						</PageUI>
 					</PageWrapperUI>
@@ -82,4 +85,7 @@ const SidebarContentUI = styled.div`
 const BodyUI = styled.div`
 	background: white;
 	width: 100%;
+	min-height: calc(100vh - 50px);
+	display: flex;
+	flex-direction: column;
 `;

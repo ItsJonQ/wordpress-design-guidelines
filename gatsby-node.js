@@ -1,5 +1,19 @@
 const path = require( 'path' );
 
+exports.createPages = ( { actions } ) => {
+	const { createRedirect } = actions;
+
+	/**
+	 * Redirects homepage to /foundations/ (for now)
+	 */
+	createRedirect( {
+		fromPath: `/`,
+		toPath: `/foundations/`,
+		redirectInBrowser: true,
+		isPermanent: true,
+	} );
+};
+
 exports.onCreateWebpackConfig = ( { getConfig, actions, stage } ) => {
 	actions.setWebpackConfig( {
 		resolve: {
@@ -61,15 +75,4 @@ exports.onCreateNode = ( { node, actions } ) => {
 			value: node.frontmatter.keywords || [],
 		} );
 	}
-};
-
-exports.createPages = ( { actions } ) => {
-	const { createRedirect } = actions;
-
-	createRedirect( {
-		fromPath: `/`,
-		toPath: `/foundations/`,
-		redirectInBrowser: true,
-		isPermanent: true,
-	} );
 };

@@ -31,10 +31,10 @@ const HeadingUI = styled.div`
 
 	&.is-shade {
 		&-muted {
-			opacity: 0.7;
+			color: var(--colorDarkGray400);
 		}
 		&-extraMuted {
-			opacity: 0.4;
+			color: var(--colorDarkGray200);
 		}
 	}
 `;

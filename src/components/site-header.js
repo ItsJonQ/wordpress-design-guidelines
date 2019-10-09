@@ -7,7 +7,14 @@ import styled from 'styled-components';
 /**
  * Internal dependencies
  */
-import { Box, Container, Link, WordPressLogo } from './index';
+import {
+	Box,
+	Container,
+	Flexy,
+	GithubLogo,
+	Link,
+	WordPressLogo,
+} from './index';
 import { useClassNames } from '../utils';
 
 export default function SiteHeader( props ) {
@@ -17,12 +24,26 @@ export default function SiteHeader( props ) {
 		<SiteHeaderUI className={ classnames() }>
 			<Container>
 				<ContentUI>
-					<Link isBlock isPlain to="/">
-						<LogoUI>
-							<WordPressLogo />
-							<Box ml={ 2 }>Design Guidelines</Box>
-						</LogoUI>
-					</Link>
+					<Flexy>
+						<Flexy.Item>
+							<Link isBlock isPlain to="/">
+								<LogoUI>
+									<WordPressLogo />
+									<Box ml={ 2 }>Design Guidelines</Box>
+								</LogoUI>
+							</Link>
+						</Flexy.Item>
+						<Flexy.Item>
+							<Link
+								isBlock
+								isPlain
+								to="https://github.com/itsjonq/wordpress-design-guidelines"
+								title="See on Github"
+							>
+								<GithubLogo />
+							</Link>
+						</Flexy.Item>
+					</Flexy>
 				</ContentUI>
 			</Container>
 		</SiteHeaderUI>

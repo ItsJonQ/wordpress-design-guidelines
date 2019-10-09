@@ -11,13 +11,13 @@ import { useClassNames } from '../utils';
 
 export default function Text( props ) {
 	const [ classnames ] = useClassNames( props, 'Text' );
-	const { align, isBlock, isMuted, isUppercase, size, ...restProps } = props;
+	const { align, isBlock, shade, isUppercase, size, ...restProps } = props;
 
 	const className = classnames(
 		align && `is-align-${ align }`,
 		isBlock && 'is-block',
-		isMuted && 'is-muted',
 		isUppercase && 'is-uppercase',
+		shade && `is-shade-${ shade }`,
 		size && `is-size-${ size }`,
 	);
 
@@ -26,14 +26,19 @@ export default function Text( props ) {
 
 const TextUI = styled.span`
 	font-size: 1.6rem;
-	color: var(--colorText);
+	color: currentColor;
 
 	&.is-block {
 		display: block;
 	}
 
-	&.is-muted {
-		opacity: 0.7;
+	&.is-shade {
+		&-muted {
+			color: var(--colorDarkGray400);
+		}
+		&-extraMuted {
+			color: var(--colorDarkGray200);
+		}
 	}
 
 	&.is-uppercase {

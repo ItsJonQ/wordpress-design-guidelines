@@ -30,7 +30,7 @@ export default function SearchBar( props ) {
 					value={ value }
 				/>
 			</Box>
-			<Text size={ 13 } isMuted>
+			<Text size={ 13 } shade="muted">
 				<strong>{ iconCount }</strong> { iconCountLabel }
 			</Text>
 		</SearchBarUI>

@@ -22,6 +22,8 @@ SiteLayoutContent.defaultProps = {
 };
 
 const ContentUI = styled.div`
+	color: var(--colorText);
+	flex: 1;
 	padding: 40px 80px 200px;
 	max-width: 860px;
 

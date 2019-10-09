@@ -20,7 +20,7 @@ export default function Subtitle( props ) {
 
 	return (
 		<SubtitleUI { ...restProps } className={ classnames() }>
-			<Text isMuted size={ 13 } isBlock>
+			<Text shade="muted" size={ 13 } isBlock>
 				{ children }
 			</Text>
 		</SubtitleUI>

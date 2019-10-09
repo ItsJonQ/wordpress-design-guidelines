@@ -70,9 +70,9 @@ const SidebarUI = styled.div`
 `;
 
 const SidebarContentUI = styled.div`
-	padding: 80px 0 100px;
+	padding: 50px 0 100px;
 	position: sticky;
-	top: 0;
+	top: 50px;
 	left: 0;
 	width: 100%;
 	overflow-y: auto;

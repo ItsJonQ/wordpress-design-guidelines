@@ -19,11 +19,7 @@ export default function SiteLayoutFooter( props ) {
 				<HR size={ 2 } />
 			</Box>
 			<Text size={ 12 } shade="extraMuted">
-				Code is Poetry. Made by{ ' ' }
-				<Link isPlain href="https://jonquach.com">
-					Q
-				</Link>{ ' ' }
-				for{ ' ' }
+				Code is Poetry. Made for{ ' ' }
 				<Link isPlain href="https://wordpress.org/">
 					WordPress
 				</Link>

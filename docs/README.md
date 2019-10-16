@@ -4,7 +4,7 @@
 
 -   [Setup Guide](./setup.md)
 -   [Project Structure](./project-structure.md)
--   [Pages](./pages.md)
+-   [Content](./content.md)
 -   [Styling (CSS)](./styling.md)
 -   [Storybook](./storybook.md)
 -   [Deploys](./deploys.md)

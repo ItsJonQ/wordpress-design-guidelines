@@ -2,7 +2,9 @@
  * External dependencies
  */
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 
 /**
  * Internal dependencies
@@ -16,14 +18,16 @@ import {
 } from '../components';
 
 export default function Template( props ) {
-	const { children } = props;
+	const { mdx } = props.data;
 
 	return (
 		<AppProvider { ...props }>
 			<SiteLayout sidebar={ <Navigation /> }>
 				<GlobalStyles />
 				<SEO { ...props } />
-				<PageUI>{ children }</PageUI>
+				<PageUI>
+					<MDXRenderer>{ mdx.body }</MDXRenderer>
+				</PageUI>
 			</SiteLayout>
 		</AppProvider>
 	);
@@ -59,4 +63,21 @@ const Navigation = () => {
 const PageUI = styled.div`
 	max-width: 800px;
 	margin: auto;
+`;
+
+export const pageQuery = graphql`
+	query($id: String!) {
+		site {
+			...site
+		}
+		mdx(fields: { id: { eq: $id } }) {
+			frontmatter {
+				title
+			}
+			fields {
+				lang
+			}
+			body
+		}
+	}
 `;

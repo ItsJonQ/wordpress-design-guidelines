@@ -8,7 +8,7 @@ import styled, { ThemeProvider } from 'styled-components';
  * Internal dependencies
  */
 import { Container, GlobalStyles, MDXProvider, SiteHeader } from '../index';
-import { Content, Footer } from './index';
+import { Content, Footer, SiteLang } from './index';
 import { useClassNames, useAnchorLinks } from '../../utils';
 
 export default function SiteLayout( props ) {
@@ -25,6 +25,7 @@ export default function SiteLayout( props ) {
 			<>
 				<GlobalStyles />
 				<SiteHeader />
+				<SiteLang />
 				<Container>
 					<div id={ topId } />
 					<PageWrapperUI className="SiteLayoutWrapper">

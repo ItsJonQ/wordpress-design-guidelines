@@ -1,18 +1,88 @@
 const path = require( 'path' );
+const { createFilePath } = require( 'gatsby-source-filesystem' );
+const { get } = require( 'lodash' );
 
-exports.createPages = ( { actions } ) => {
-	const { createRedirect } = actions;
+const DEFAULT_TEMPLATE_NAME = 'content';
+const DEFAULT_LANG = 'en';
 
-	/**
-	 * Redirects homepage to /foundations/ (for now)
-	 */
-	createRedirect( {
-		fromPath: `/`,
-		toPath: `/foundations/`,
-		redirectInBrowser: true,
-		isPermanent: true,
+const createPosts = ( createPage, edges ) => {
+	edges.forEach( ( { node }, index ) => {
+		const templateName = get( node, 'fields.template', DEFAULT_TEMPLATE_NAME );
+		const templateFile = `src/templates/${ templateName }.js`;
+
+		createPage( {
+			path: node.fields.slug,
+			component: path.resolve( templateFile ),
+			context: {
+				...node.fields,
+				id: node.id,
+				index,
+			},
+		} );
 	} );
 };
+
+const createSlug = ( { node, filePath } ) => {
+	const preferredSlug = get( node, 'frontmatter.slug', filePath );
+	const isDefaultLang = preferredSlug.indexOf( `/${ DEFAULT_LANG }/` ) === 0;
+
+	if ( ! isDefaultLang ) {
+		return preferredSlug;
+	}
+
+	return preferredSlug.replace( /^\/en\//, '' );
+};
+
+const getLang = ( { filePath } ) => {
+	const matches = filePath.match( /^\/(.*?)\// );
+	if ( ! matches.length ) {
+		return DEFAULT_LANG;
+	}
+
+	return matches[ 1 ];
+};
+
+exports.createPages = ( { actions, graphql } ) =>
+	graphql( `
+		query {
+			allMdx {
+				edges {
+					node {
+						id
+						excerpt(pruneLength: 250)
+						fields {
+							title
+							description
+							slug
+							template
+							lang
+						}
+						body
+					}
+				}
+			}
+		}
+	` ).then( ( { data, errors } ) => {
+		if ( errors ) {
+			return Promise.reject( errors );
+		}
+
+		const { createRedirect } = actions;
+
+		/**
+		 * Redirects homepage to /foundations/ (for now)
+		 */
+		createRedirect( {
+			fromPath: `/`,
+			toPath: `/foundations/`,
+			redirectInBrowser: true,
+			isPermanent: true,
+		} );
+
+		const { edges } = data.allMdx;
+
+		createPosts( actions.createPage, edges );
+	} );
 
 exports.onCreateWebpackConfig = ( { getConfig, actions, stage } ) => {
 	actions.setWebpackConfig( {
@@ -35,10 +105,14 @@ exports.onCreateWebpackConfig = ( { getConfig, actions, stage } ) => {
 	}
 };
 
-exports.onCreateNode = ( { node, actions } ) => {
+exports.onCreateNode = ( { node, actions, getNode } ) => {
 	const { createNodeField } = actions;
 
 	if ( node.internal.type === `Mdx` ) {
+		const filePath = createFilePath( { node, getNode } );
+		const slug = createSlug( { node, filePath } );
+		const lang = getLang( { filePath } );
+
 		createNodeField( {
 			name: 'id',
 			node,
@@ -48,31 +122,43 @@ exports.onCreateNode = ( { node, actions } ) => {
 		createNodeField( {
 			name: 'title',
 			node,
-			value: node.frontmatter.title,
+			value: get( node, 'frontmatter.title', '' ),
 		} );
 
 		createNodeField( {
 			name: 'description',
 			node,
-			value: node.frontmatter.description,
+			value: get( node, 'frontmatter.description', '' ),
 		} );
 
 		createNodeField( {
 			name: 'slug',
 			node,
-			value: node.frontmatter.slug,
+			value: slug,
 		} );
 
 		createNodeField( {
 			name: 'date',
 			node,
-			value: node.frontmatter.date || '',
+			value: get( node, 'frontmatter.date', '' ),
 		} );
 
 		createNodeField( {
 			name: 'keywords',
 			node,
-			value: node.frontmatter.keywords || [],
+			value: get( node, 'frontmatter.keywords', [] ),
+		} );
+
+		createNodeField( {
+			name: 'template',
+			node,
+			value: get( node, 'frontmatter.template', DEFAULT_TEMPLATE_NAME ),
+		} );
+
+		createNodeField( {
+			name: 'lang',
+			node,
+			value: get( node, 'frontmatter.lang', lang ),
 		} );
 	}
 };

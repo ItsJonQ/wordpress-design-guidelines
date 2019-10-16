@@ -16,12 +16,12 @@ function getPageTitle( title ) {
 
 function getTitleFromProps( props ) {
 	const { title } = props;
-	return title || get( props, 'pageContext.frontmatter.title' );
+	return title || get( props, 'data.mdx.frontmatter.title' );
 }
 
 function getDescriptionFromProps( props ) {
 	const { description } = props;
-	return description || get( props, 'pageContext.frontmatter.description' );
+	return description || get( props, 'data.mdx.frontmatter.title' );
 }
 
 export default function SEO( props ) {
@@ -31,7 +31,6 @@ export default function SEO( props ) {
 
 	return (
 		<Helmet>
-			<html lang="en" />
 			<title>{ pageTitle }</title>
 			<meta name="description" content={ description } />
 			{ pageTitle && <meta property="og:title" content={ pageTitle } /> }

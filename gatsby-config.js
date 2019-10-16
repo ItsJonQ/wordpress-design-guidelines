@@ -17,7 +17,14 @@ module.exports = {
 	},
 	plugins: [
 		{
-			resolve: `gatsby-mdx`,
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${ __dirname }/content`,
+				name: 'content',
+			},
+		},
+		{
+			resolve: `gatsby-plugin-mdx`,
 			options: {
 				extensions: [ '.mdx', '.md' ],
 				gatsbyRemarkPlugins: [
@@ -45,18 +52,18 @@ module.exports = {
 		'gatsby-plugin-styled-components',
 		'gatsby-plugin-catch-links',
 		'gatsby-plugin-react-helmet',
-		{
-			resolve: 'gatsby-plugin-manifest',
-			options: {
-				name: 'A learning, teaching and writing software engineer',
-				short_name: 'RWieruch',
-				start_url: '/',
-				background_color: '#fff',
-				theme_color: '#525dce',
-				display: 'standalone',
-				icon: 'assets/logo.png',
-			},
-		},
-		'gatsby-plugin-offline',
+		// {
+		// 	resolve: 'gatsby-plugin-manifest',
+		// 	options: {
+		// 		name: 'A learning, teaching and writing software engineer',
+		// 		short_name: 'RWieruch',
+		// 		start_url: '/',
+		// 		background_color: '#fff',
+		// 		theme_color: '#525dce',
+		// 		display: 'standalone',
+		// 		icon: 'assets/logo.png',
+		// 	},
+		// },
+		// 'gatsby-plugin-offline',
 	],
 };

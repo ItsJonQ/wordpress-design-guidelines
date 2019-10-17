@@ -52,6 +52,7 @@ module.exports = {
 		'gatsby-plugin-styled-components',
 		'gatsby-plugin-catch-links',
 		'gatsby-plugin-react-helmet',
+		'gatsby-plugin-remove-serviceworker',
 		// {
 		// 	resolve: 'gatsby-plugin-manifest',
 		// 	options: {

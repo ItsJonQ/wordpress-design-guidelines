@@ -65,6 +65,5 @@ module.exports = {
 				icon: 'assets/logo.png',
 			},
 		},
-		'gatsby-plugin-offline',
 	],
 };

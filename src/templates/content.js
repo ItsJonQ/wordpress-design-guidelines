@@ -55,6 +55,7 @@ export const pageQuery = graphql`
 		mdx(fields: { id: { eq: $id } }) {
 			frontmatter {
 				title
+				description
 			}
 			fields {
 				lang

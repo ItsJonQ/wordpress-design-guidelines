@@ -21,7 +21,7 @@ function getTitleFromProps( props ) {
 
 function getDescriptionFromProps( props ) {
 	const { description } = props;
-	return description || get( props, 'data.mdx.frontmatter.title' );
+	return description || get( props, 'data.mdx.frontmatter.description' );
 }
 
 export default function SEO( props ) {

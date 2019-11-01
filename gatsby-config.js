@@ -53,18 +53,18 @@ module.exports = {
 		'gatsby-plugin-catch-links',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-remove-serviceworker',
-		// {
-		// 	resolve: 'gatsby-plugin-manifest',
-		// 	options: {
-		// 		name: 'A learning, teaching and writing software engineer',
-		// 		short_name: 'RWieruch',
-		// 		start_url: '/',
-		// 		background_color: '#fff',
-		// 		theme_color: '#525dce',
-		// 		display: 'standalone',
-		// 		icon: 'assets/logo.png',
-		// 	},
-		// },
-		// 'gatsby-plugin-offline',
+		{
+			resolve: 'gatsby-plugin-manifest',
+			options: {
+				name: 'WordPress Design Guidelines',
+				short_name: 'WP Design Guidelines',
+				start_url: '/',
+				background_color: '#fff',
+				theme_color: '#333',
+				display: 'standalone',
+				icon: 'assets/logo.png',
+			},
+		},
+		'gatsby-plugin-offline',
 	],
 };

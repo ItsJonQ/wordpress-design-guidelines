@@ -50,7 +50,8 @@ const getLang = ( { filePath } ) => {
 
 const createLangRedirects = ( { createRedirect } ) => {
 	LANGS.forEach( ( lang ) => {
-		const baseUrl = lang === 'en' ? '/' : `/${ lang }/`;
+		const isLangEn = lang === 'en';
+		const baseUrl = isLangEn ? '/' : `/${ lang }/`;
 
 		createRedirect( {
 			fromPath: baseUrl,
@@ -58,6 +59,15 @@ const createLangRedirects = ( { createRedirect } ) => {
 			redirectInBrowser: true,
 			isPermanent: true,
 		} );
+
+		if ( ! isLangEn ) {
+			createRedirect( {
+				fromPath: `/${ lang }`,
+				toPath: `${ baseUrl }foundations/`,
+				redirectInBrowser: true,
+				isPermanent: true,
+			} );
+		}
 	} );
 };
 

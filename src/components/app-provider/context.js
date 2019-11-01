@@ -13,12 +13,16 @@ export function AppProvider( props ) {
 	const [ currentIcon, setCurrentIcon ] = useState();
 
 	const lang = get( props, 'pageContext.lang', 'en' );
+	const baseLangUrl = lang === 'en' ? '' : lang;
+	const baseUrl = lang === 'en' ? '/' : `/${ lang }/`;
 
 	const { Provider } = AppContext;
 
 	const providerProps = {
 		currentColor,
 		currentIcon,
+		baseLangUrl,
+		baseUrl,
 		lang,
 		location,
 		navigate,

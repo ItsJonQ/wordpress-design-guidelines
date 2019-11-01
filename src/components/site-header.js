@@ -15,9 +15,13 @@ import {
 	Link,
 	WordPressLogo,
 } from './index';
+
+import { useAppContext } from './app-provider';
+
 import { useClassNames } from '../utils';
 
 export default function SiteHeader( props ) {
+	const { baseUrl } = useAppContext();
 	const [ classnames ] = useClassNames( props, 'SiteHeader' );
 
 	return (
@@ -26,7 +30,7 @@ export default function SiteHeader( props ) {
 				<ContentUI>
 					<Flexy>
 						<Flexy.Item>
-							<Link isBlock isPlain to="/">
+							<Link isBlock isPlain to={ baseUrl }>
 								<LogoUI>
 									<WordPressLogo />
 									<Box ml={ 2 }>Design Guidelines</Box>

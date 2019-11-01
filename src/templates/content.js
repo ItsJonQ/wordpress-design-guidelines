@@ -16,6 +16,8 @@ import {
 	SiteLayout,
 	SEO,
 } from '../components';
+import { useAppContext } from '../components/app-provider';
+import { getNavLinks } from './nav-utils';
 
 export default function Template( props ) {
 	const { mdx } = props.data;
@@ -34,28 +36,8 @@ export default function Template( props ) {
 }
 
 const Navigation = () => {
-	const links = [
-		{
-			to: '/foundations/',
-			label: 'Get Started',
-		},
-		{
-			to: '/foundations/identity/',
-			label: 'Identity',
-		},
-		{
-			to: '/foundations/colors/',
-			label: 'Colors',
-		},
-		{
-			to: '/foundations/typography/',
-			label: 'Typography',
-		},
-		{
-			to: '/foundations/iconography/',
-			label: 'Iconography',
-		},
-	];
+	const { lang } = useAppContext();
+	const links = getNavLinks( lang );
 
 	return <SiteSidebarNav links={ links } title="Foundations" />;
 };

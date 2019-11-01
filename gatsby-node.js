@@ -5,9 +5,15 @@ const { get } = require( 'lodash' );
 const DEFAULT_TEMPLATE_NAME = 'content';
 const DEFAULT_LANG = 'en';
 
+const LANGS = [ 'en', 'ja' ];
+
 const createPosts = ( createPage, edges ) => {
 	edges.forEach( ( { node }, index ) => {
-		const templateName = get( node, 'fields.template', DEFAULT_TEMPLATE_NAME );
+		const templateName = get(
+			node,
+			'fields.template',
+			DEFAULT_TEMPLATE_NAME,
+		);
 		const templateFile = `src/templates/${ templateName }.js`;
 
 		createPage( {
@@ -42,6 +48,19 @@ const getLang = ( { filePath } ) => {
 	return matches[ 1 ];
 };
 
+const createLangRedirects = ( { createRedirect } ) => {
+	LANGS.forEach( ( lang ) => {
+		const baseUrl = lang === 'en' ? '/' : `/${ lang }/`;
+
+		createRedirect( {
+			fromPath: baseUrl,
+			toPath: `${ baseUrl }foundations/`,
+			redirectInBrowser: true,
+			isPermanent: true,
+		} );
+	} );
+};
+
 exports.createPages = ( { actions, graphql } ) =>
 	graphql( `
 		query {
@@ -72,12 +91,7 @@ exports.createPages = ( { actions, graphql } ) =>
 		/**
 		 * Redirects homepage to /foundations/ (for now)
 		 */
-		createRedirect( {
-			fromPath: `/`,
-			toPath: `/foundations/`,
-			redirectInBrowser: true,
-			isPermanent: true,
-		} );
+		createLangRedirects( { createRedirect } );
 
 		const { edges } = data.allMdx;
 

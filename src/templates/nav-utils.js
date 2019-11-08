@@ -28,19 +28,19 @@ export const LINKS = {
 		},
 		{
 			to: '/ja/foundations/identity/',
-			label: 'Identity',
+			label: 'アイデンティティ',
 		},
 		{
 			to: '/ja/foundations/colors/',
-			label: '色',
+			label: 'カラー',
 		},
 		{
 			to: '/ja/foundations/typography/',
-			label: '活字',
+			label: 'タイポグラフィ',
 		},
 		{
 			to: '/ja/foundations/iconography/',
-			label: '図像学',
+			label: 'アイコノグラフィー',
 		},
 	],
 };

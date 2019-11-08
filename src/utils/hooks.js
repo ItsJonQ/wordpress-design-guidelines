@@ -19,7 +19,9 @@ export function useAnchorLinks() {
 				return;
 			}
 
-			window.history.pushState( {}, null, target.href );
+			const targetHref = decodeURIComponent( target.href );
+
+			window.history.pushState( {}, null, targetHref );
 			event.preventDefault();
 
 			const targetNode = document.querySelector( href );
@@ -33,9 +35,10 @@ export function useAnchorLinks() {
 
 		const handleOnClickAnchor = ( event ) => {
 			const { currentTarget: target } = event;
+			const targetHref = decodeURIComponent( target.href );
 			event.preventDefault();
-			window.history.pushState( {}, null, target.href );
-			copyToClipboard( target.href );
+			window.history.pushState( {}, null, targetHref );
+			copyToClipboard( decodeURIComponent( targetHref ) );
 		};
 
 		Array.from( linkNodes ).forEach( ( node ) => {

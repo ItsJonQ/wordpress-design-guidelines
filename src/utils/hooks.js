@@ -13,7 +13,7 @@ export function useAnchorLinks() {
 
 		const handleOnClickLink = ( event ) => {
 			const { currentTarget: target } = event;
-			const href = target.getAttribute( 'href' );
+			const href = decodeURIComponent( target.getAttribute( 'href' ) );
 
 			if ( href.indexOf( '#' ) !== 0 ) {
 				return;

@@ -11,8 +11,9 @@ const scrollTo = ( id ) => () => {
 	return false;
 };
 
-export const onRouteUpdate = ( { location: { hash } } ) => {
+export const onRouteUpdate = ( props ) => {
+	const { location: { hash } } = props;
 	if ( hash ) {
-		window.setTimeout( scrollTo( hash ), 10 );
+		window.setTimeout( scrollTo( decodeURIComponent( hash ) ), 10 );
 	}
 };
